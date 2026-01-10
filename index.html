@@ -1,796 +1,329 @@
 <!doctype html>
 <html lang="en">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <meta name="theme-color" content="#ffffff" />
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>I Shirt You Not by Dawn</title>
+    <meta name="description" content="I Shirt You Not by Dawn — Custom tees with attitude." />
 
-  <title>I Shirt You Not by Dawn | Custom Tees With Attitude</title>
-  <meta name="description" content="I Shirt You Not by Dawn makes custom tees with attitude — one-offs, bulk/team orders, and design help. Request a quote today." />
-  <meta name="robots" content="index,follow" />
-  <link rel="canonical" href="https://YOUR-USERNAME.github.io/YOUR-REPO/" />
-
-  <!-- Open Graph (Facebook/LinkedIn) -->
-  <meta property="og:type" content="website" />
-  <meta property="og:title" content="I Shirt You Not by Dawn | Custom Tees With Attitude" />
-  <meta property="og:description" content="Custom tees with attitude — one-offs, bulk orders, and design help. Request a quote." />
-  <meta property="og:url" content="https://YOUR-USERNAME.github.io/YOUR-REPO/" />
-  <meta property="og:image" content="https://YOUR-USERNAME.github.io/YOUR-REPO/logo.png" />
-  <meta property="og:image:alt" content="I Shirt You Not by Dawn logo" />
-
-  <!-- Twitter Card -->
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="I Shirt You Not by Dawn | Custom Tees With Attitude" />
-  <meta name="twitter:description" content="Custom tees with attitude — one-offs, bulk orders, and design help. Request a quote." />
-  <meta name="twitter:image" content="https://YOUR-USERNAME.github.io/YOUR-REPO/logo.png" />
-
-  <!-- Performance -->
-  <link rel="preload" as="image" href="logo.png" />
-
-  <!-- Structured Data -->
-  <script type="application/ld+json">
-  {
-    "@context":"https://schema.org",
-    "@type":"Store",
-    "name":"I Shirt You Not by Dawn",
-    "description":"Custom tees with attitude — one-offs, bulk/team orders, and design help.",
-    "url":"https://YOUR-USERNAME.github.io/YOUR-REPO/",
-    "logo":"https://YOUR-USERNAME.github.io/YOUR-REPO/logo.png",
-    "image":"https://YOUR-USERNAME.github.io/YOUR-REPO/logo.png",
-    "areaServed":"US"
-  }
-  </script>
-
-  <style>
-    :root{
-      --bg:#ffffff;
-      --text:#0b1220;
-      --muted:#475569;
-      --border: rgba(15,23,42,.12);
-      --shadow: 0 22px 70px rgba(2,6,23,.12);
-      --shadow2: 0 12px 32px rgba(2,6,23,.10);
-      --shadow3: 0 8px 22px rgba(2,6,23,.08);
-      --radius: 22px;
-      --radius2: 28px;
-      --max: 1180px;
-
-      /* Mature button palette */
-      --btn:#0b1220;
-      --btnHover:#111b31;
-      --btnText:#ffffff;
-
-      --focus: 0 0 0 4px rgba(59,130,246,.20);
-    }
-
-    *{box-sizing:border-box}
-    html,body{height:100%}
-    body{
-      margin:0;
-      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
-      color:var(--text);
-      background: var(--bg);
-      -webkit-font-smoothing: antialiased;
-      -moz-osx-font-smoothing: grayscale;
-    }
-
-    /* Premium background with subtle paint splashes */
-    .bg{
-      position:fixed; inset:0;
-      pointer-events:none;
-      background:
-        /* Paint splashes (soft + premium) */
-        radial-gradient(520px 380px at 18% 18%, rgba(249,115,22,.14), transparent 62%),
-        radial-gradient(520px 380px at 82% 22%, rgba(59,130,246,.13), transparent 64%),
-        radial-gradient(560px 420px at 68% 78%, rgba(16,185,129,.10), transparent 66%),
-        radial-gradient(540px 420px at 30% 82%, rgba(168,85,247,.09), transparent 68%),
-
-        /* Depth haze (keeps it expensive, not flat) */
-        radial-gradient(760px 520px at 50% 55%, rgba(2,6,23,.035), transparent 62%),
-
-        /* Original depth */
-        radial-gradient(900px 520px at 14% 8%, rgba(2,6,23,.06), transparent 60%),
-        radial-gradient(900px 520px at 86% 10%, rgba(2,6,23,.05), transparent 60%),
-        radial-gradient(800px 520px at 50% 105%, rgba(2,6,23,.05), transparent 60%),
-        linear-gradient(180deg, #ffffff, #ffffff);
-    }
-
-    /* Optional micro-spatter texture (still subtle) */
-    .bg::after{
-      content:"";
-      position:absolute;
-      inset:-20%;
-      opacity:.18;
-      pointer-events:none;
-      background:
-        radial-gradient(2px 2px at 12% 22%, rgba(2,6,23,.35), transparent 60%),
-        radial-gradient(2px 2px at 16% 18%, rgba(2,6,23,.28), transparent 60%),
-        radial-gradient(2px 2px at 78% 24%, rgba(2,6,23,.25), transparent 60%),
-        radial-gradient(2px 2px at 82% 28%, rgba(2,6,23,.20), transparent 60%),
-        radial-gradient(2px 2px at 30% 74%, rgba(2,6,23,.25), transparent 60%),
-        radial-gradient(2px 2px at 34% 78%, rgba(2,6,23,.20), transparent 60%),
-        radial-gradient(2px 2px at 62% 82%, rgba(2,6,23,.18), transparent 60%);
-      transform: rotate(-6deg);
-    }
-
-    .wrap{
-      min-height: 100vh;
-      min-height: 100dvh;
-      padding: 18px 16px 56px;
-      display:flex;
-      justify-content:center;
-    }
-
-    .container{
-      width:min(var(--max), 100%);
-      display:flex;
-      flex-direction:column;
-      gap: 18px;
-    }
-
-    header{
-      position: sticky;
-      top: 10px;
-      z-index: 50;
-      display:flex;
-      justify-content:center;
-    }
-
-    .navBar{
-      width: min(980px, 100%);
-      border: 1px solid var(--border);
-      border-radius: 999px;
-      background: rgba(255,255,255,.76);
-      backdrop-filter: blur(14px);
-      -webkit-backdrop-filter: blur(14px);
-      box-shadow: 0 10px 30px rgba(2,6,23,.08);
-      padding: 10px 10px;
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      gap: 10px;
-    }
-
-    .brandMini{
-      display:flex;
-      align-items:center;
-      gap: 10px;
-      padding-left: 6px;
-      min-width: 210px;
-    }
-
-    .dot{
-      width: 10px; height: 10px;
-      border-radius: 999px;
-      background: linear-gradient(180deg, rgba(2,6,23,.9), rgba(2,6,23,.55));
-      box-shadow: 0 8px 18px rgba(2,6,23,.18);
-    }
-
-    .brandMini strong{
-      font-size: 13px;
-      letter-spacing: .28px;
-      font-weight: 950;
-      text-transform: uppercase;
-      color: rgba(2,6,23,.85);
-      white-space: nowrap;
-    }
-
-    nav{
-      display:flex;
-      gap: 8px;
-      align-items:center;
-      justify-content:center;
-      flex-wrap:wrap;
-    }
-
-    .navLink{
-      text-decoration:none;
-      color: rgba(2,6,23,.86);
-      font-weight: 900;
-      font-size: 13px;
-      padding: 10px 14px;
-      border-radius: 999px;
-      border: 1px solid rgba(15,23,42,.12);
-      background: rgba(255,255,255,.9);
-      transition: transform 160ms ease, box-shadow 160ms ease, background 160ms ease, border-color 160ms ease;
-      white-space: nowrap;
-      outline: none;
-    }
-    .navLink:hover{
-      transform: translateY(-1px);
-      box-shadow: 0 12px 26px rgba(2,6,23,.12);
-      border-color: rgba(15,23,42,.18);
-      background: #fff;
-    }
-    .navLink:focus-visible{
-      box-shadow: var(--focus);
-    }
-
-    .navCta{
-      display:flex;
-      align-items:center;
-      gap: 8px;
-      padding-right: 6px;
-      min-width: 210px;
-      justify-content:flex-end;
-    }
-
-    .btn{
-      text-decoration:none;
-      font-weight: 950;
-      letter-spacing: .2px;
-      border-radius: 14px;
-      padding: 12px 16px;
-      display:inline-flex;
-      align-items:center;
-      justify-content:center;
-      border: 1px solid rgba(15,23,42,.14);
-      transition: transform 160ms ease, box-shadow 160ms ease, background 160ms ease, color 160ms ease, border-color 160ms ease;
-      user-select:none;
-      cursor:pointer;
-      outline:none;
-      line-height: 1;
-      gap: 10px;
-    }
-    .btnPrimary{
-      background: var(--btn);
-      border-color: rgba(2,6,23,.25);
-      color: var(--btnText);
-      box-shadow: 0 16px 36px rgba(2,6,23,.18);
-    }
-    .btnPrimary:hover{
-      transform: translateY(-2px);
-      background: var(--btnHover);
-      box-shadow: 0 18px 44px rgba(2,6,23,.22);
-    }
-    .btnGhost{
-      color: rgba(2,6,23,.9);
-      background: rgba(255,255,255,.92);
-      box-shadow: 0 12px 28px rgba(2,6,23,.10);
-    }
-    .btnGhost:hover{
-      transform: translateY(-2px);
-      background: #fff;
-      border-color: rgba(15,23,42,.18);
-      box-shadow: 0 16px 36px rgba(2,6,23,.14);
-    }
-    .btn:focus-visible{
-      box-shadow: var(--focus);
-    }
-
-    main{
-      display:flex;
-      flex-direction:column;
-      gap: 18px;
-    }
-
-    .hero{
-      border: 1px solid var(--border);
-      border-radius: var(--radius2);
-      background: linear-gradient(180deg, rgba(255,255,255,.85), rgba(255,255,255,.96));
-      box-shadow: var(--shadow);
-      overflow:hidden;
-      position: relative;
-    }
-
-    .hero:before{
-      content:"";
-      position:absolute;
-      inset: -2px;
-      background:
-        radial-gradient(520px 340px at 18% 20%, rgba(59,130,246,.10), transparent 60%),
-        radial-gradient(520px 340px at 82% 20%, rgba(249,115,22,.10), transparent 60%),
-        radial-gradient(700px 420px at 50% 120%, rgba(2,6,23,.06), transparent 60%);
-      pointer-events:none;
-    }
-
-    .heroInner{
-      position:relative;
-      padding: 30px;
-      display:grid;
-      grid-template-columns: 1.05fr .95fr;
-      gap: 26px;
-      align-items:center;
-    }
-
-    .kicker{
-      display:inline-flex;
-      align-items:center;
-      gap: 10px;
-      font-size: 12px;
-      font-weight: 900;
-      letter-spacing: .26px;
-      text-transform: uppercase;
-      color: rgba(2,6,23,.70);
-      margin-bottom: 12px;
-    }
-
-    .pill{
-      display:inline-flex;
-      align-items:center;
-      gap: 8px;
-      padding: 8px 12px;
-      border: 1px solid rgba(15,23,42,.12);
-      border-radius: 999px;
-      background: rgba(255,255,255,.85);
-      box-shadow: 0 10px 24px rgba(2,6,23,.08);
-      white-space: nowrap;
-    }
-
-    .heroTitle{
-      margin: 0;
-      font-weight: 1000;
-      letter-spacing: -0.6px;
-      font-size: clamp(30px, 4.8vw, 56px);
-      line-height: 1.03;
-    }
-
-    .heroSubtitle{
-      margin: 12px 0 0;
-      color: var(--muted);
-      font-size: clamp(14px, 1.55vw, 18px);
-      line-height: 1.6;
-      max-width: 56ch;
-    }
-
-    .heroCtaRow{
-      margin-top: 18px;
-      display:flex;
-      gap: 12px;
-      flex-wrap:wrap;
-      align-items:center;
-    }
-
-    .microCopy{
-      margin-top: 10px;
-      color: rgba(2,6,23,.62);
-      font-size: 12px;
-      line-height: 1.5;
-    }
-
-    .heroRight{
-      display:flex;
-      flex-direction:column;
-      gap: 14px;
-      align-items:center;
-      justify-content:center;
-    }
-
-    .logoStage{
-      width: 100%;
-      border: 1px solid rgba(15,23,42,.12);
-      border-radius: 22px;
-      background: rgba(255,255,255,.85);
-      box-shadow: var(--shadow2);
-      padding: 18px;
-      display:grid;
-      place-items:center;
-    }
-
-    .logo{
-      width: 100%;
-      max-width: 520px;
-      height: auto;
-      display:block;
-      filter: drop-shadow(0 16px 26px rgba(2,6,23,.14));
-    }
-
-    .trustRow{
-      width:100%;
-      display:grid;
-      grid-template-columns: repeat(3, minmax(0,1fr));
-      gap: 10px;
-    }
-
-    .trustBadge{
-      border: 1px solid rgba(15,23,42,.12);
-      border-radius: 18px;
-      background: rgba(255,255,255,.88);
-      box-shadow: var(--shadow3);
-      padding: 12px 12px;
-      display:flex;
-      flex-direction:column;
-      gap: 4px;
-      min-height: 78px;
-    }
-    .trustBadge strong{
-      font-size: 13px;
-      font-weight: 950;
-      letter-spacing: .2px;
-    }
-    .trustBadge span{
-      font-size: 12px;
-      color: rgba(2,6,23,.62);
-      line-height: 1.4;
-    }
-
-    .sectionHead{
-      display:flex;
-      align-items:flex-end;
-      justify-content:space-between;
-      gap: 12px;
-      margin-top: 4px;
-    }
-    .sectionHead h2{
-      margin:0;
-      font-size: 18px;
-      letter-spacing: -0.2px;
-      font-weight: 1000;
-    }
-    .sectionHead p{
-      margin:0;
-      color: rgba(2,6,23,.62);
-      font-size: 13px;
-      line-height: 1.4;
-    }
-
-    .grid{
-      display:grid;
-      grid-template-columns: repeat(3, minmax(0,1fr));
-      gap: 14px;
-    }
-
-    .card{
-      border: 1px solid rgba(15,23,42,.12);
-      border-radius: 22px;
-      background: rgba(255,255,255,.92);
-      box-shadow: 0 14px 40px rgba(2,6,23,.08);
-      padding: 18px;
-      display:flex;
-      flex-direction:column;
-      gap: 10px;
-      position:relative;
-      overflow:hidden;
-    }
-
-    .card:before{
-      content:"";
-      position:absolute;
-      inset:auto -40px -40px auto;
-      width: 140px;
-      height: 140px;
-      border-radius: 999px;
-      background: radial-gradient(circle at 30% 30%, rgba(59,130,246,.16), transparent 62%);
-      transform: rotate(12deg);
-      pointer-events:none;
-    }
-
-    .cardTitle{
-      font-weight: 1000;
-      letter-spacing:.2px;
-      font-size: 15px;
-      display:flex;
-      align-items:center;
-      gap: 10px;
-    }
-
-    .icon{
-      width: 34px;
-      height: 34px;
-      border-radius: 12px;
-      border: 1px solid rgba(15,23,42,.12);
-      background: rgba(255,255,255,.85);
-      display:grid;
-      place-items:center;
-      box-shadow: 0 10px 20px rgba(2,6,23,.08);
-      flex: 0 0 auto;
-      color: rgba(2,6,23,.8);
-      font-weight: 1000;
-      font-size: 12px;
-      letter-spacing: .2px;
-    }
-
-    .cardText{
-      margin:0;
-      color: var(--muted);
-      font-size: 13px;
-      line-height: 1.55;
-    }
-
-    .cardMeta{
-      margin-top:auto;
-      display:flex;
-      flex-wrap:wrap;
-      gap: 8px;
-      padding-top: 8px;
-    }
-
-    .tag{
-      font-size: 12px;
-      color: rgba(2,6,23,.70);
-      border: 1px solid rgba(15,23,42,.12);
-      background: rgba(248,250,252,.9);
-      padding: 7px 10px;
-      border-radius: 999px;
-      white-space: nowrap;
-    }
-
-    .steps{
-      display:grid;
-      grid-template-columns: repeat(3, minmax(0,1fr));
-      gap: 14px;
-    }
-
-    .step{
-      border: 1px solid rgba(15,23,42,.12);
-      border-radius: 22px;
-      background: rgba(255,255,255,.92);
-      box-shadow: 0 14px 40px rgba(2,6,23,.08);
-      padding: 18px;
-      display:flex;
-      flex-direction:column;
-      gap: 10px;
-    }
-
-    .stepTop{
-      display:flex;
-      align-items:center;
-      gap: 10px;
-    }
-    .num{
-      width: 34px;
-      height: 34px;
-      border-radius: 12px;
-      background: rgba(11,18,32,.95);
-      color: #fff;
-      display:grid;
-      place-items:center;
-      font-weight: 1000;
-      box-shadow: 0 14px 24px rgba(2,6,23,.16);
-      flex: 0 0 auto;
-    }
-    .step strong{
-      font-weight: 1000;
-      letter-spacing:.2px;
-    }
-    .step p{
-      margin:0;
-      color: var(--muted);
-      font-size: 13px;
-      line-height: 1.55;
-    }
-
-    footer{
-      margin-top: 8px;
-      border-top: 1px solid rgba(15,23,42,.10);
-      padding-top: 18px;
-      display:flex;
-      flex-wrap:wrap;
-      align-items:flex-start;
-      justify-content:space-between;
-      gap: 14px;
-      color: rgba(2,6,23,.60);
-      font-size: 12px;
-      line-height: 1.5;
-    }
-
-    .footLinks{
-      display:flex;
-      flex-wrap:wrap;
-      gap: 10px;
-    }
-    .footLinks a{
-      color: rgba(2,6,23,.70);
-      text-decoration:none;
-      font-weight: 850;
-      border-bottom: 1px solid rgba(2,6,23,.18);
-      padding-bottom: 1px;
-    }
-    .footLinks a:hover{
-      color: rgba(2,6,23,.90);
-      border-bottom-color: rgba(2,6,23,.40);
-    }
-
-    @media (max-width: 980px){
-      .heroInner{grid-template-columns: 1fr; padding: 22px;}
-      .brandMini, .navCta{min-width: unset;}
-      .navBar{border-radius: 22px; padding: 10px 10px;}
-      .trustRow{grid-template-columns: 1fr;}
-    }
-
-    @media (max-width: 860px){
-      .grid{grid-template-columns: 1fr}
-      .steps{grid-template-columns: 1fr}
-    }
-
-    @media (max-width: 520px){
-      .wrap{padding: 14px 12px 44px;}
-      header{top: 8px;}
-      .navBar{
-        border-radius: 18px;
-        flex-direction:column;
-        align-items:stretch;
-        gap: 10px;
-        padding: 10px;
+    <style>
+      :root{
+        --bg:#0b0c10;
+        --card:rgba(255,255,255,.08);
+        --card2:rgba(255,255,255,.06);
+        --text:#f5f7ff;
+        --muted:rgba(245,247,255,.70);
+        --border:rgba(255,255,255,.14);
+        --shadow:0 30px 90px rgba(0,0,0,.55);
+        --glow:0 0 40px rgba(255,165,0,.25), 0 0 60px rgba(0,170,255,.18);
+        --max:1080px;
+        --accent1:#ff9a00;
+        --accent2:#00b3ff;
       }
-      .brandMini{justify-content:center; padding-left:0;}
-      .navCta{justify-content:center; padding-right:0;}
-      nav{justify-content:center;}
-      .navLink{padding: 9px 12px; font-size: 13px;}
-      .heroCtaRow .btn{width:100%;}
-      .heroInner{padding: 18px;}
-      .logoStage{padding: 14px;}
-    }
 
-    @media (prefers-reduced-motion: reduce){
-      .navLink,.btn{transition:none}
-      .navLink:hover,.btn:hover{transform:none}
-    }
-  </style>
-</head>
+      *{box-sizing:border-box}
+      html,body{height:100%}
+      body{
+        margin:0;
+        font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
+        color:var(--text);
+        background: radial-gradient(1000px 700px at 20% 15%, rgba(255,154,0,.16), transparent 60%),
+                    radial-gradient(900px 600px at 80% 25%, rgba(0,179,255,.14), transparent 55%),
+                    radial-gradient(900px 650px at 50% 95%, rgba(255,255,255,.06), transparent 60%),
+                    var(--bg);
+        overflow-x:hidden;
+      }
 
-<body>
-  <div class="bg" aria-hidden="true"></div>
+      /* animated grain + subtle streaks */
+      .fx{
+        position:fixed; inset:0; pointer-events:none;
+        background:
+          repeating-linear-gradient(115deg, rgba(255,255,255,.05) 0 1px, transparent 1px 12px),
+          radial-gradient(1200px 600px at 50% 0%, rgba(255,255,255,.06), transparent 60%),
+          url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='120' height='120' filter='url(%23n)' opacity='.12'/%3E%3C/svg%3E");
+        mix-blend-mode: overlay;
+        opacity:.35;
+      }
 
-  <div class="wrap">
-    <div class="container">
+      .wrap{
+        min-height:100%;
+        display:grid;
+        place-items:center;
+        padding:24px 16px 42px;
+      }
 
-      <header>
-        <div class="navBar" role="navigation" aria-label="Primary navigation">
-          <div class="brandMini" aria-label="Brand">
-            <span class="dot" aria-hidden="true"></span>
-            <strong>I Shirt You Not</strong>
-          </div>
+      .container{
+        width:min(var(--max),100%);
+        display:grid;
+        gap:18px;
+      }
 
-          <nav>
-            <a class="navLink" href="index.html" aria-current="page">Home</a>
-            <a class="navLink" href="products.html">Our Products</a>
-            <a class="navLink" href="contact.html">Contact Us</a>
+      header{
+        display:flex;
+        align-items:center;
+        justify-content:space-between;
+        gap:12px;
+        padding:10px 6px;
+      }
+
+      .brand{
+        display:flex; align-items:center; gap:12px;
+        font-weight:950; letter-spacing:.25px;
+      }
+      .brandDot{
+        width:10px; height:10px; border-radius:999px;
+        background: linear-gradient(90deg, var(--accent1), var(--accent2));
+        box-shadow: var(--glow);
+      }
+
+      .nav{
+        display:flex; gap:10px; flex-wrap:wrap;
+        justify-content:center;
+      }
+      .nav a{
+        text-decoration:none;
+        color:var(--text);
+        border:1px solid var(--border);
+        background: rgba(255,255,255,.06);
+        padding:9px 12px;
+        border-radius:14px;
+        font-weight:800;
+        font-size:14px;
+        backdrop-filter: blur(10px);
+        transition: transform 140ms ease, background 140ms ease, border-color 140ms ease;
+      }
+      .nav a:hover{
+        transform: translateY(-1px);
+        background: rgba(255,255,255,.10);
+        border-color: rgba(255,255,255,.22);
+      }
+
+      .hero{
+        position:relative;
+        border:1px solid var(--border);
+        border-radius:26px;
+        background: linear-gradient(180deg, rgba(255,255,255,.09), rgba(255,255,255,.05));
+        box-shadow: var(--shadow);
+        overflow:hidden;
+      }
+
+      /* neon rim */
+      .hero::before{
+        content:"";
+        position:absolute; inset:-2px;
+        background: conic-gradient(from 180deg, rgba(255,154,0,.55), rgba(0,179,255,.45), rgba(255,154,0,.55));
+        filter: blur(18px);
+        opacity:.35;
+        pointer-events:none;
+      }
+
+      .heroInner{
+        position:relative;
+        display:grid;
+        gap:16px;
+        padding:22px;
+        backdrop-filter: blur(12px);
+      }
+
+      .logoWrap{
+        display:grid;
+        place-items:center;
+        padding:18px 14px;
+        border-radius:22px;
+        border:1px solid rgba(255,255,255,.12);
+        background: rgba(0,0,0,.22);
+        box-shadow: 0 18px 55px rgba(0,0,0,.45);
+      }
+
+      .logo{
+        width: min(560px, 92vw);
+        height:auto;
+        display:block;
+        border-radius:16px;
+        background:#fff; /* helps if logo has transparent edges */
+        padding:14px;
+        box-shadow: 0 18px 60px rgba(0,0,0,.55);
+      }
+
+      h1{
+        margin:0;
+        font-size: clamp(26px, 3.4vw, 44px);
+        font-weight: 1000;
+        letter-spacing: .2px;
+        line-height: 1.05;
+        text-align:center;
+      }
+
+      .sub{
+        margin:0;
+        text-align:center;
+        color:var(--muted);
+        font-size: clamp(14px, 2vw, 18px);
+        line-height:1.5;
+      }
+
+      .chips{
+        display:flex; flex-wrap:wrap; gap:10px;
+        justify-content:center;
+        margin-top:4px;
+      }
+      .chip{
+        border:1px solid rgba(255,255,255,.14);
+        background: rgba(255,255,255,.06);
+        border-radius: 999px;
+        padding: 8px 12px;
+        font-weight: 850;
+        font-size: 13px;
+        color: rgba(245,247,255,.88);
+      }
+
+      .actions{
+        display:flex; flex-wrap:wrap; gap:12px;
+        justify-content:center;
+        margin-top:8px;
+      }
+
+      .btn{
+        text-decoration:none;
+        border-radius:16px;
+        padding:12px 16px;
+        font-weight:950;
+        letter-spacing:.2px;
+        border:1px solid rgba(255,255,255,.14);
+        display:inline-flex;
+        align-items:center;
+        justify-content:center;
+        min-width: 190px;
+        transition: transform 140ms ease, box-shadow 140ms ease, background 140ms ease;
+        user-select:none;
+      }
+      .btn.primary{
+        background: linear-gradient(90deg, var(--accent1), var(--accent2));
+        color:#0b0c10;
+        box-shadow: var(--glow);
+        border-color: rgba(255,255,255,.10);
+      }
+      .btn.primary:hover{ transform: translateY(-2px); box-shadow: 0 0 50px rgba(255,154,0,.32), 0 0 70px rgba(0,179,255,.22) }
+      .btn.secondary{
+        background: rgba(255,255,255,.06);
+        color: var(--text);
+      }
+      .btn.secondary:hover{ transform: translateY(-2px); background: rgba(255,255,255,.10) }
+
+      .divider{
+        height:1px;
+        background: rgba(255,255,255,.12);
+        margin: 6px 0 0;
+      }
+
+      .mini{
+        display:grid;
+        gap:10px;
+        grid-template-columns: repeat(3, minmax(0,1fr));
+        margin-top:14px;
+      }
+
+      .miniCard{
+        border:1px solid rgba(255,255,255,.12);
+        background: rgba(255,255,255,.05);
+        border-radius:18px;
+        padding:14px;
+        display:grid;
+        gap:8px;
+      }
+
+      .miniTitle{
+        font-weight:950;
+        letter-spacing:.2px;
+      }
+
+      .miniText{
+        color: var(--muted);
+        font-size: 13px;
+        line-height:1.45;
+      }
+
+      footer{
+        text-align:center;
+        color: rgba(245,247,255,.55);
+        font-size: 12px;
+        margin-top: 10px;
+      }
+
+      @media (max-width: 860px){
+        .mini{ grid-template-columns:1fr; }
+      }
+      @media (max-width: 520px){
+        header{ flex-direction:column; align-items:flex-start; }
+        .actions .btn{ width:100%; }
+        .logo{ padding:12px; border-radius:14px; }
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="fx" aria-hidden="true"></div>
+
+    <main class="wrap">
+      <div class="container">
+        <header>
+          <div class="brand"><span class="brandDot"></span> I Shirt You Not — by Dawn</div>
+          <nav class="nav" aria-label="Primary">
+            <a href="index.html">Home</a>
+            <a href="products.html">Our Products</a>
+            <a href="contact.html">Contact Us</a>
           </nav>
+        </header>
 
-          <div class="navCta">
-            <a class="btn btnGhost" href="contact.html" aria-label="Request a quote">Request a Quote</a>
-          </div>
-        </div>
-      </header>
-
-      <main role="main">
-
-        <section class="hero" aria-label="Hero">
+        <section class="hero">
           <div class="heroInner">
-            <div class="heroLeft">
-              <div class="kicker">
-                <span class="pill">Clean prints • Bold attitude • Fast turnaround</span>
-              </div>
-
-              <h1 class="heroTitle">Custom Tees With Attitude</h1>
-              <p class="heroSubtitle">
-                One-offs, bulk/team orders, and design help — built to look sharp, feel great, and print clean.
-                Tell us what you want. We’ll make it real.
-              </p>
-
-              <div class="heroCtaRow">
-                <a class="btn btnPrimary" href="products.html">Browse Products</a>
-                <a class="btn btnGhost" href="contact.html">Get a Quote</a>
-              </div>
-
-              <div class="microCopy">
-                No fluff. No messy prints. Just quality you’ll actually be proud to wear.
-              </div>
+            <div class="logoWrap">
+              <!-- This is where your logo.png is used -->
+              <img class="logo" src="logo.png" alt="I Shirt You Not by Dawn logo" />
             </div>
 
-            <div class="heroRight">
-              <div class="logoStage" aria-label="Brand logo">
-                <img class="logo" src="logo.png" alt="I Shirt You Not by Dawn logo" />
-              </div>
+            <h1>Custom Tees With Attitude.</h1>
+            <p class="sub">
+              Clean designs, sharp prints, and a professional finish — without losing the personality.
+            </p>
 
-              <div class="trustRow" aria-label="Trust highlights">
-                <div class="trustBadge">
-                  <strong>Prints that pop</strong>
-                  <span>Designed for crisp lines and clean color.</span>
-                </div>
-                <div class="trustBadge">
-                  <strong>Bulk friendly</strong>
-                  <span>Teams, crews, reunions—consistent every time.</span>
-                </div>
-                <div class="trustBadge">
-                  <strong>Design help</strong>
-                  <span>Bring the idea. We’ll refine it to look legit.</span>
-                </div>
+            <div class="chips" aria-label="Highlights">
+              <span class="chip">Custom Designs</span>
+              <span class="chip">Bulk Orders</span>
+              <span class="chip">Fast Turnaround</span>
+              <span class="chip">Quality Prints</span>
+            </div>
+
+            <div class="actions">
+              <a class="btn primary" href="products.html">Browse Our Products</a>
+              <a class="btn secondary" href="contact.html">Request a Quote</a>
+            </div>
+
+            <div class="divider"></div>
+
+            <div class="mini">
+              <div class="miniCard">
+                <div class="miniTitle">One-Off Shirts</div>
+                <div class="miniText">Perfect for gifts, events, birthdays, or “I need this on a shirt” moments.</div>
+              </div>
+              <div class="miniCard">
+                <div class="miniTitle">Teams & Bulk</div>
+                <div class="miniText">School groups, work crews, family reunions — get consistent prints and pricing.</div>
+              </div>
+              <div class="miniCard">
+                <div class="miniTitle">Design Help</div>
+                <div class="miniText">Send your idea and we’ll help tighten it up so it prints clean and looks legit.</div>
               </div>
             </div>
           </div>
         </section>
 
-        <section aria-label="Highlights">
-          <div class="sectionHead">
-            <h2>What we do</h2>
-            <p>Simple options. Professional results.</p>
-          </div>
+        <footer>© <span id="year"></span> I Shirt You Not by Dawn</footer>
+      </div>
+    </main>
 
-          <div class="grid">
-            <div class="card">
-              <div class="cardTitle">
-                <span class="icon" aria-hidden="true">1X</span>
-                One-Off Shirts
-              </div>
-              <p class="cardText">Gifts, birthdays, events, or “I need this on a shirt” moments.</p>
-              <div class="cardMeta">
-                <span class="tag">Singles</span>
-                <span class="tag">Fast turn</span>
-                <span class="tag">Crisp detail</span>
-              </div>
-            </div>
-
-            <div class="card">
-              <div class="cardTitle">
-                <span class="icon" aria-hidden="true">BLK</span>
-                Bulk & Teams
-              </div>
-              <p class="cardText">Work crews, school groups, reunions—consistent print quality and pricing.</p>
-              <div class="cardMeta">
-                <span class="tag">Teams</span>
-                <span class="tag">Bulk pricing</span>
-                <span class="tag">Consistent runs</span>
-              </div>
-            </div>
-
-            <div class="card">
-              <div class="cardTitle">
-                <span class="icon" aria-hidden="true">ART</span>
-                Design Help
-              </div>
-              <p class="cardText">Send the idea. We refine it so it prints clean and looks expensive.</p>
-              <div class="cardMeta">
-                <span class="tag">Cleanup</span>
-                <span class="tag">Layout</span>
-                <span class="tag">Print-ready</span>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <section aria-label="How it works">
-          <div class="sectionHead">
-            <h2>How it works</h2>
-            <p>Three steps. No chaos.</p>
-          </div>
-
-          <div class="steps">
-            <div class="step">
-              <div class="stepTop">
-                <div class="num" aria-hidden="true">1</div>
-                <strong>Tell us what you want</strong>
-              </div>
-              <p>Send your idea, quantity, and deadline. If you have artwork, attach it. If not—no problem.</p>
-            </div>
-
-            <div class="step">
-              <div class="stepTop">
-                <div class="num" aria-hidden="true">2</div>
-                <strong>We mock it up</strong>
-              </div>
-              <p>We refine the design and confirm details so the final print looks clean and intentional.</p>
-            </div>
-
-            <div class="step">
-              <div class="stepTop">
-                <div class="num" aria-hidden="true">3</div>
-                <strong>We print and deliver</strong>
-              </div>
-              <p>You get sharp, professional results—whether it’s one shirt or a whole crew.</p>
-            </div>
-          </div>
-        </section>
-
-      </main>
-
-      <footer>
-        <div>
-          <strong style="color: rgba(2,6,23,.85); font-weight: 950;">© <span id="year"></span> I Shirt You Not by Dawn</strong><br/>
-          <span>Custom tees with attitude — clean prints, bold ideas.</span>
-        </div>
-
-        <div class="footLinks" aria-label="Footer links">
-          <a href="products.html">Products</a>
-          <a href="contact.html">Request a Quote</a>
-        </div>
-      </footer>
-
-    </div>
-  </div>
-
-  <script>
-    document.getElementById("year").textContent = new Date().getFullYear();
-  </script>
-</body>
+    <script>
+      document.getElementById("year").textContent = new Date().getFullYear();
+    </script>
+  </body>
 </html>
