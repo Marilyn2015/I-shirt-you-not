@@ -27,10 +27,7 @@
   <!-- Performance -->
   <link rel="preload" as="image" href="logo.png" />
 
-  <!-- Favicon (optional) -->
-  <!-- <link rel="icon" href="favicon.ico" /> -->
-
-  <!-- Structured Data (edit fields as you like) -->
+  <!-- Structured Data -->
   <script type="application/ld+json">
   {
     "@context":"https://schema.org",
@@ -40,21 +37,17 @@
     "url":"https://YOUR-USERNAME.github.io/YOUR-REPO/",
     "logo":"https://YOUR-USERNAME.github.io/YOUR-REPO/logo.png",
     "image":"https://YOUR-USERNAME.github.io/YOUR-REPO/logo.png",
-    "areaServed":"US",
-    "sameAs":[
-      "https://facebook.com/YOURPAGE",
-      "https://instagram.com/YOURHANDLE"
-    ]
+    "areaServed":"US"
   }
   </script>
 
   <style>
     :root{
       --bg:#ffffff;
-      --text:#0f172a;        /* slate-900 */
-      --muted:#475569;       /* slate-600 */
-      --border:#e2e8f0;      /* slate-200 */
-      --soft:#f8fafc;        /* slate-50 */
+      --text:#0f172a;
+      --muted:#475569;
+      --border:#e2e8f0;
+      --soft:#f8fafc;
       --shadow: 0 18px 55px rgba(2,6,23,.12);
       --shadow2: 0 10px 30px rgba(2,6,23,.10);
       --radius: 22px;
@@ -85,43 +78,46 @@
     }
 
     .wrap{
-      min-height:100%;
+      min-height: 100vh;
+      min-height: 100dvh; /* better on mobile browsers */
       display:grid;
       place-items:start center;
-      padding: 18px 16px 40px;
+      padding: 14px 14px 34px;
     }
 
     .container{
       width:min(var(--max), 100%);
       display:grid;
-      gap: 18px;
+      gap: 14px;
     }
 
-    /* Header / Nav */
+    /* Header / Nav (mobile-first) */
     header{
       display:flex;
-      align-items:center;
-      justify-content:flex-end;
-      padding: 6px 0;
+      justify-content:center;
+      padding: 4px 0 2px;
     }
 
     nav{
       display:flex;
       gap:10px;
       flex-wrap:wrap;
+      justify-content:center;
+      align-items:center;
     }
 
     .navLink{
       text-decoration:none;
       color: var(--text);
-      font-weight: 800;
+      font-weight: 850;
       font-size: 14px;
       padding: 10px 14px;
       border-radius: 999px;
       border: 1px solid var(--border);
-      background: rgba(255,255,255,.85);
+      background: rgba(255,255,255,.95);
       box-shadow: 0 6px 18px rgba(2,6,23,.05);
       transition: transform 140ms ease, box-shadow 140ms ease, background 140ms ease;
+      white-space: nowrap;
     }
     .navLink:hover{
       transform: translateY(-1px);
@@ -139,34 +135,35 @@
     }
 
     .heroInner{
-      padding: 18px;
+      padding: 16px;
       display:grid;
-      gap: 16px;
+      gap: 14px;
     }
 
     .logoStage{
       border: 1px solid var(--border);
       border-radius: 18px;
-      background: #ffffff; /* ✅ PURE WHITE behind logo */
+      background: #ffffff; /* PURE WHITE behind logo */
       box-shadow: var(--shadow2);
-      padding: 18px;
+      padding: 14px;
       display:grid;
       place-items:center;
     }
 
+    /* MOBILE-FRIENDLY LOGO SIZING */
     .logo{
-      width: min(620px, 92vw);
+      width: 100%;
+      max-width: 560px;
       height: auto;
       display:block;
-      /* no filters, no blend, no tint */
     }
 
     .title{
       margin:0;
       text-align:center;
-      font-weight: 950;
+      font-weight: 1000;
       letter-spacing: .2px;
-      font-size: clamp(22px, 3vw, 40px);
+      font-size: clamp(20px, 5.6vw, 40px);
       line-height: 1.05;
     }
 
@@ -174,7 +171,7 @@
       margin: 0;
       text-align:center;
       color: var(--muted);
-      font-size: clamp(14px, 1.8vw, 18px);
+      font-size: clamp(13px, 3.9vw, 18px);
       line-height: 1.5;
     }
 
@@ -183,12 +180,12 @@
       gap: 12px;
       justify-content:center;
       flex-wrap:wrap;
-      margin-top: 4px;
+      margin-top: 2px;
     }
 
     .btn{
       text-decoration:none;
-      font-weight: 900;
+      font-weight: 950;
       letter-spacing: .2px;
       border-radius: 14px;
       padding: 12px 16px;
@@ -227,7 +224,7 @@
       display:grid;
       grid-template-columns: repeat(3, minmax(0,1fr));
       gap: 14px;
-      margin-top: 8px;
+      margin-top: 6px;
     }
 
     .card{
@@ -252,23 +249,33 @@
       line-height: 1.45;
     }
 
-    /* Footer */
     footer{
       text-align:center;
       color: rgba(2,6,23,.50);
       font-size: 12px;
-      padding: 8px 0 0;
+      padding: 6px 0 0;
     }
 
     /* Responsive */
     @media (max-width: 860px){
       .grid{grid-template-columns: 1fr}
-      header{justify-content:center}
     }
+
+    /* Strong mobile polish */
     @media (max-width: 520px){
-      .btn{width:100%}
-      .heroInner{padding: 14px}
-      .logoStage{padding: 14px}
+      .wrap{padding: 12px 12px 28px;}
+      .heroInner{padding: 14px;}
+      .logoStage{padding: 12px;}
+      .ctaRow{gap: 10px;}
+      .btn{width:100%; min-width: 0;}
+      nav{gap:8px;}
+      .navLink{padding: 9px 12px; font-size: 13px;}
+    }
+
+    /* Ultra-small devices */
+    @media (max-width: 360px){
+      .title{font-size: 20px;}
+      .subtitle{font-size: 13px;}
     }
   </style>
 </head>
@@ -279,7 +286,6 @@
   <div class="wrap">
     <div class="container">
 
-      <!-- NAV ONLY (no top-left brand text) -->
       <header>
         <nav aria-label="Primary navigation">
           <a class="navLink" href="index.html" aria-current="page">Home</a>
