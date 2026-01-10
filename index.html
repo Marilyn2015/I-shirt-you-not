@@ -51,9 +51,12 @@
       --shadow: 0 18px 55px rgba(2,6,23,.12);
       --shadow2: 0 10px 30px rgba(2,6,23,.10);
       --radius: 22px;
-      --accent1:#ff9a00;
-      --accent2:#00b3ff;
       --max: 1100px;
+
+      /* New mature button palette */
+      --btn:#0b1220;
+      --btnHover:#0f172a;
+      --btnText:#ffffff;
     }
 
     *{box-sizing:border-box}
@@ -72,9 +75,9 @@
       position:fixed; inset:0;
       pointer-events:none;
       background:
-        radial-gradient(900px 520px at 18% 10%, rgba(255,154,0,.09), transparent 60%),
-        radial-gradient(900px 520px at 82% 12%, rgba(0,179,255,.08), transparent 60%),
-        radial-gradient(1000px 650px at 50% 110%, rgba(2,6,23,.05), transparent 65%);
+        radial-gradient(900px 520px at 18% 10%, rgba(2,6,23,.05), transparent 60%),
+        radial-gradient(900px 520px at 82% 12%, rgba(2,6,23,.04), transparent 60%),
+        radial-gradient(1000px 650px at 50% 110%, rgba(2,6,23,.04), transparent 65%);
     }
 
     .wrap{
@@ -91,7 +94,6 @@
       gap: 14px;
     }
 
-    /* Header / Nav (mobile-first) */
     header{
       display:flex;
       justify-content:center;
@@ -125,7 +127,6 @@
       background: #fff;
     }
 
-    /* Main content wrapper (replaces hero/heroInner) */
     main{
       display:grid;
       gap: 14px;
@@ -134,14 +135,13 @@
     .logoStage{
       border: 1px solid var(--border);
       border-radius: 18px;
-      background: #ffffff; /* PURE WHITE behind logo */
+      background: #ffffff;
       box-shadow: var(--shadow2);
       padding: 14px;
       display:grid;
       place-items:center;
     }
 
-    /* MOBILE-FRIENDLY LOGO SIZING */
     .logo{
       width: 100%;
       max-width: 560px;
@@ -185,20 +185,22 @@
       align-items:center;
       justify-content:center;
       border: 1px solid var(--border);
-      transition: transform 140ms ease, box-shadow 140ms ease, filter 140ms ease;
+      transition: transform 140ms ease, box-shadow 140ms ease, background 140ms ease, color 140ms ease;
       user-select:none;
       cursor:pointer;
     }
 
+    /* Mature primary button (no rainbow) */
     .btnPrimary{
-      color:#0b1220;
-      background: linear-gradient(90deg, var(--accent1), var(--accent2));
-      border-color: rgba(2,6,23,.08);
-      box-shadow: 0 14px 40px rgba(255,154,0,.18), 0 14px 40px rgba(0,179,255,.12);
+      background: var(--btn);
+      border-color: rgba(2,6,23,.25);
+      color: var(--btnText);
+      box-shadow: 0 14px 34px rgba(2,6,23,.18);
     }
     .btnPrimary:hover{
       transform: translateY(-2px);
-      filter: brightness(1.03);
+      background: var(--btnHover);
+      box-shadow: 0 16px 40px rgba(2,6,23,.22);
     }
 
     .btnGhost{
@@ -208,9 +210,24 @@
     }
     .btnGhost:hover{
       transform: translateY(-2px);
+      background: #f8fafc;
+      box-shadow: 0 14px 30px rgba(2,6,23,.12);
     }
 
-    /* Feature grid */
+    /* Back button (subtle, consistent) */
+    .btnBack{
+      min-width: 140px;
+      background: rgba(255,255,255,.95);
+      border-color: rgba(2,6,23,.14);
+      color: rgba(2,6,23,.85);
+      box-shadow: 0 10px 24px rgba(2,6,23,.06);
+    }
+    .btnBack:hover{
+      transform: translateY(-2px);
+      background: #ffffff;
+      box-shadow: 0 14px 30px rgba(2,6,23,.10);
+    }
+
     .grid{
       display:grid;
       grid-template-columns: repeat(3, minmax(0,1fr));
@@ -247,12 +264,10 @@
       padding: 6px 0 0;
     }
 
-    /* Responsive */
     @media (max-width: 860px){
       .grid{grid-template-columns: 1fr}
     }
 
-    /* Strong mobile polish */
     @media (max-width: 520px){
       .wrap{padding: 12px 12px 28px;}
       .logoStage{padding: 12px;}
@@ -262,7 +277,6 @@
       .navLink{padding: 9px 12px; font-size: 13px;}
     }
 
-    /* Ultra-small devices */
     @media (max-width: 360px){
       .title{font-size: 20px;}
       .subtitle{font-size: 13px;}
@@ -295,6 +309,7 @@
         </p>
 
         <div class="ctaRow">
+          <button class="btn btnBack" type="button" id="backBtn" aria-label="Go back">← Back</button>
           <a class="btn btnPrimary" href="products.html">Browse Products</a>
           <a class="btn btnGhost" href="contact.html">Request a Quote</a>
         </div>
@@ -324,6 +339,12 @@
 
   <script>
     document.getElementById("year").textContent = new Date().getFullYear();
+
+    // Smart back: if there's history, go back; otherwise go home.
+    document.getElementById("backBtn").addEventListener("click", () => {
+      if (window.history.length > 1) window.history.back();
+      else window.location.href = "index.html";
+    });
   </script>
 </body>
 </html>
