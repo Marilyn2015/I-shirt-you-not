@@ -46,27 +46,18 @@
       --bg:#ffffff;
       --text:#0b1220;
       --muted:#475569;
-      --muted2:#64748b;
       --border: rgba(15,23,42,.12);
-      --border2: rgba(15,23,42,.16);
-      --soft:#f8fafc;
-      --soft2:#f3f6fb;
       --shadow: 0 22px 70px rgba(2,6,23,.12);
       --shadow2: 0 12px 32px rgba(2,6,23,.10);
       --shadow3: 0 8px 22px rgba(2,6,23,.08);
       --radius: 22px;
       --radius2: 28px;
-
       --max: 1180px;
 
       /* Mature button palette */
       --btn:#0b1220;
       --btnHover:#111b31;
       --btnText:#ffffff;
-
-      /* Accent (subtle, not rainbow) */
-      --accent: rgba(249,115,22,.14); /* warm orange haze */
-      --accent2: rgba(59,130,246,.12); /* cool blue haze */
 
       --focus: 0 0 0 4px rgba(59,130,246,.20);
     }
@@ -82,19 +73,45 @@
       -moz-osx-font-smoothing: grayscale;
     }
 
-    /* Premium background: white with tasteful depth */
+    /* Premium background with subtle paint splashes */
     .bg{
       position:fixed; inset:0;
       pointer-events:none;
       background:
+        /* Paint splashes (soft + premium) */
+        radial-gradient(520px 380px at 18% 18%, rgba(249,115,22,.14), transparent 62%),
+        radial-gradient(520px 380px at 82% 22%, rgba(59,130,246,.13), transparent 64%),
+        radial-gradient(560px 420px at 68% 78%, rgba(16,185,129,.10), transparent 66%),
+        radial-gradient(540px 420px at 30% 82%, rgba(168,85,247,.09), transparent 68%),
+
+        /* Depth haze (keeps it expensive, not flat) */
+        radial-gradient(760px 520px at 50% 55%, rgba(2,6,23,.035), transparent 62%),
+
+        /* Original depth */
         radial-gradient(900px 520px at 14% 8%, rgba(2,6,23,.06), transparent 60%),
         radial-gradient(900px 520px at 86% 10%, rgba(2,6,23,.05), transparent 60%),
         radial-gradient(800px 520px at 50% 105%, rgba(2,6,23,.05), transparent 60%),
-        radial-gradient(520px 520px at 22% 42%, var(--accent2), transparent 62%),
-        radial-gradient(520px 520px at 78% 46%, var(--accent), transparent 62%);
+        linear-gradient(180deg, #ffffff, #ffffff);
     }
 
-    /* Page wrapper */
+    /* Optional micro-spatter texture (still subtle) */
+    .bg::after{
+      content:"";
+      position:absolute;
+      inset:-20%;
+      opacity:.18;
+      pointer-events:none;
+      background:
+        radial-gradient(2px 2px at 12% 22%, rgba(2,6,23,.35), transparent 60%),
+        radial-gradient(2px 2px at 16% 18%, rgba(2,6,23,.28), transparent 60%),
+        radial-gradient(2px 2px at 78% 24%, rgba(2,6,23,.25), transparent 60%),
+        radial-gradient(2px 2px at 82% 28%, rgba(2,6,23,.20), transparent 60%),
+        radial-gradient(2px 2px at 30% 74%, rgba(2,6,23,.25), transparent 60%),
+        radial-gradient(2px 2px at 34% 78%, rgba(2,6,23,.20), transparent 60%),
+        radial-gradient(2px 2px at 62% 82%, rgba(2,6,23,.18), transparent 60%);
+      transform: rotate(-6deg);
+    }
+
     .wrap{
       min-height: 100vh;
       min-height: 100dvh;
@@ -110,7 +127,6 @@
       gap: 18px;
     }
 
-    /* Sticky premium nav */
     header{
       position: sticky;
       top: 10px;
@@ -198,7 +214,6 @@
       justify-content:flex-end;
     }
 
-    /* Buttons */
     .btn{
       text-decoration:none;
       font-weight: 950;
@@ -242,7 +257,6 @@
       box-shadow: var(--focus);
     }
 
-    /* Layout sections */
     main{
       display:flex;
       flex-direction:column;
@@ -252,14 +266,12 @@
     .hero{
       border: 1px solid var(--border);
       border-radius: var(--radius2);
-      background:
-        linear-gradient(180deg, rgba(255,255,255,.85), rgba(255,255,255,.96));
+      background: linear-gradient(180deg, rgba(255,255,255,.85), rgba(255,255,255,.96));
       box-shadow: var(--shadow);
       overflow:hidden;
       position: relative;
     }
 
-    /* subtle "glass" accent inside hero */
     .hero:before{
       content:"";
       position:absolute;
@@ -391,7 +403,6 @@
       line-height: 1.4;
     }
 
-    /* Section headings */
     .sectionHead{
       display:flex;
       align-items:flex-end;
@@ -412,7 +423,6 @@
       line-height: 1.4;
     }
 
-    /* Feature grid */
     .grid{
       display:grid;
       grid-template-columns: repeat(3, minmax(0,1fr));
@@ -494,7 +504,6 @@
       white-space: nowrap;
     }
 
-    /* How it works */
     .steps{
       display:grid;
       grid-template-columns: repeat(3, minmax(0,1fr));
@@ -540,7 +549,6 @@
       line-height: 1.55;
     }
 
-    /* Premium footer */
     footer{
       margin-top: 8px;
       border-top: 1px solid rgba(15,23,42,.10);
@@ -572,12 +580,11 @@
       border-bottom-color: rgba(2,6,23,.40);
     }
 
-    /* Responsive */
     @media (max-width: 980px){
       .heroInner{grid-template-columns: 1fr; padding: 22px;}
       .brandMini, .navCta{min-width: unset;}
       .navBar{border-radius: 22px; padding: 10px 10px;}
-      .trustRow{grid-template-columns: 1fr; }
+      .trustRow{grid-template-columns: 1fr;}
     }
 
     @media (max-width: 860px){
@@ -604,7 +611,6 @@
       .logoStage{padding: 14px;}
     }
 
-    /* Reduce motion */
     @media (prefers-reduced-motion: reduce){
       .navLink,.btn{transition:none}
       .navLink:hover,.btn:hover{transform:none}
@@ -777,9 +783,6 @@
         <div class="footLinks" aria-label="Footer links">
           <a href="products.html">Products</a>
           <a href="contact.html">Request a Quote</a>
-          <!-- Optional: add policies later -->
-          <!-- <a href="privacy.html">Privacy</a>
-          <a href="terms.html">Terms</a> -->
         </div>
       </footer>
 
