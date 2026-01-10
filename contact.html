@@ -8,21 +8,21 @@
   <title>Contact Us | I Shirt You Not by Dawn</title>
   <meta name="description" content="Contact I Shirt You Not by Dawn for custom shirts, bulk orders, and quotes. Fast turnaround and clean prints." />
   <meta name="robots" content="index,follow" />
-  <link rel="canonical" href="https://YOUR-USERNAME.github.io/YOUR-REPO/contact.html" />
+  <link rel="canonical" href="https://marilyn2015.github.io/I-shirt-you-not/contact.html" />
 
   <!-- Open Graph -->
   <meta property="og:type" content="website" />
   <meta property="og:title" content="Contact Us | I Shirt You Not by Dawn" />
   <meta property="og:description" content="Request a quote for custom tees, bulk orders, and design help." />
-  <meta property="og:url" content="https://YOUR-USERNAME.github.io/YOUR-REPO/contact.html" />
-  <meta property="og:image" content="https://YOUR-USERNAME.github.io/YOUR-REPO/logo.png" />
+  <meta property="og:url" content="https://marilyn2015.github.io/I-shirt-you-not/contact.html" />
+  <meta property="og:image" content="https://marilyn2015.github.io/I-shirt-you-not/logo.png" />
   <meta property="og:image:alt" content="I Shirt You Not by Dawn logo" />
 
   <!-- Twitter -->
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="Contact Us | I Shirt You Not by Dawn" />
   <meta name="twitter:description" content="Request a quote for custom tees, bulk orders, and design help." />
-  <meta name="twitter:image" content="https://YOUR-USERNAME.github.io/YOUR-REPO/logo.png" />
+  <meta name="twitter:image" content="https://marilyn2015.github.io/I-shirt-you-not/logo.png" />
 
   <link rel="preload" as="image" href="logo.png" />
 
@@ -36,10 +36,14 @@
       --shadow: 0 18px 55px rgba(2,6,23,.12);
       --shadow2: 0 10px 30px rgba(2,6,23,.10);
       --radius: 22px;
-      --accent1:#ff9a00;
-      --accent2:#00b3ff;
       --max: 1100px;
+
+      /* Mature button palette (no rainbow) */
+      --btn:#0b1220;
+      --btnHover:#0f172a;
+      --btnText:#ffffff;
     }
+
     *{box-sizing:border-box}
     html,body{height:100%}
     body{
@@ -50,29 +54,32 @@
       -webkit-font-smoothing: antialiased;
       -moz-osx-font-smoothing: grayscale;
     }
+
     .bg{
       position:fixed; inset:0; pointer-events:none;
       background:
-        radial-gradient(900px 520px at 18% 10%, rgba(255,154,0,.09), transparent 60%),
-        radial-gradient(900px 520px at 82% 12%, rgba(0,179,255,.08), transparent 60%),
-        radial-gradient(1000px 650px at 50% 110%, rgba(2,6,23,.05), transparent 65%);
+        radial-gradient(900px 520px at 18% 10%, rgba(2,6,23,.05), transparent 60%),
+        radial-gradient(900px 520px at 82% 12%, rgba(2,6,23,.04), transparent 60%),
+        radial-gradient(1000px 650px at 50% 110%, rgba(2,6,23,.04), transparent 65%);
     }
-    .wrap{min-height:100%; display:grid; place-items:start center; padding:18px 16px 40px}
+
+    .wrap{min-height:100dvh; display:grid; place-items:start center; padding:18px 16px 40px}
     .container{width:min(var(--max),100%); display:grid; gap:18px}
 
-    header{display:flex; align-items:center; justify-content:flex-end; padding:6px 0}
-    nav{display:flex; gap:10px; flex-wrap:wrap}
+    header{display:flex; align-items:center; justify-content:center; padding:6px 0}
+    nav{display:flex; gap:10px; flex-wrap:wrap; justify-content:center}
     .navLink{
       text-decoration:none;
       color: var(--text);
-      font-weight: 800;
+      font-weight: 850;
       font-size: 14px;
       padding: 10px 14px;
       border-radius: 999px;
       border: 1px solid var(--border);
-      background: rgba(255,255,255,.85);
+      background: rgba(255,255,255,.95);
       box-shadow: 0 6px 18px rgba(2,6,23,.05);
       transition: transform 140ms ease, box-shadow 140ms ease, background 140ms ease;
+      white-space:nowrap;
     }
     .navLink:hover{transform:translateY(-1px); box-shadow:0 12px 26px rgba(2,6,23,.10); background:#fff}
 
@@ -85,13 +92,7 @@
     }
     .panelInner{padding:18px; display:grid; gap:14px}
 
-    .topRow{
-      display:flex;
-      align-items:flex-start;
-      justify-content:space-between;
-      gap:12px;
-      flex-wrap:wrap;
-    }
+    .topRow{display:flex; align-items:flex-start; justify-content:space-between; gap:12px; flex-wrap:wrap}
     h1{margin:0; font-size: clamp(22px, 3vw, 34px); font-weight: 950; letter-spacing:.2px}
     .sub{margin:6px 0 0; color:var(--muted); line-height:1.5}
     .logoMini{
@@ -103,11 +104,7 @@
       box-shadow: var(--shadow2);
     }
 
-    .layout{
-      display:grid;
-      grid-template-columns: 1.1fr .9fr;
-      gap:14px;
-    }
+    .layout{display:grid; grid-template-columns: 1.1fr .9fr; gap:14px}
 
     .box{
       border:1px solid var(--border);
@@ -117,13 +114,7 @@
       padding:14px;
     }
 
-    label{
-      display:block;
-      font-weight: 950;
-      font-size: 13px;
-      margin: 10px 0 6px;
-    }
-
+    label{display:block; font-weight: 950; font-size: 13px; margin: 10px 0 6px}
     input, select, textarea{
       width:100%;
       border:1px solid rgba(2,6,23,.12);
@@ -136,68 +127,66 @@
     }
     textarea{min-height: 130px; resize: vertical}
 
-    .btnRow{
-      display:flex;
-      gap:10px;
-      flex-wrap:wrap;
-      margin-top: 12px;
-    }
+    .btnRow{display:flex; gap:10px; flex-wrap:wrap; margin-top: 12px}
 
     .btn{
       border-radius: 14px;
       padding: 12px 14px;
       font-weight: 950;
       letter-spacing:.2px;
-      border:1px solid rgba(2,6,23,.10);
+      border:1px solid rgba(2,6,23,.12);
       display:inline-flex;
       align-items:center;
       justify-content:center;
       min-width: 170px;
       cursor:pointer;
       user-select:none;
-      transition: transform 140ms ease, filter 140ms ease;
+      transition: transform 140ms ease, box-shadow 140ms ease, background 140ms ease, color 140ms ease;
+      text-decoration:none;
+      background:#fff;
+      color:#0b1220;
+      box-shadow: 0 10px 24px rgba(2,6,23,.08);
     }
+    .btn:hover{transform:translateY(-2px); box-shadow:0 14px 30px rgba(2,6,23,.12)}
 
     .btnPrimary{
-      color:#0b1220;
-      background: linear-gradient(90deg, var(--accent1), var(--accent2));
-      box-shadow: 0 14px 40px rgba(255,154,0,.16), 0 14px 40px rgba(0,179,255,.10);
+      background: var(--btn);
+      color: var(--btnText);
+      border-color: rgba(2,6,23,.25);
+      box-shadow: 0 14px 34px rgba(2,6,23,.18);
     }
-    .btnPrimary:hover{transform:translateY(-1px); filter:brightness(1.02)}
+    .btnPrimary:hover{
+      background: var(--btnHover);
+      box-shadow: 0 16px 40px rgba(2,6,23,.22);
+    }
 
-    .btnGhost{
-      color: var(--text);
+    .btnBack{
+      min-width: 140px;
+      background: rgba(255,255,255,.95);
+      border-color: rgba(2,6,23,.14);
+      color: rgba(2,6,23,.85);
+      box-shadow: 0 10px 24px rgba(2,6,23,.06);
+    }
+    .btnBack:hover{
       background:#fff;
-    }
-    .btnGhost:hover{transform:translateY(-1px)}
-
-    .small{
-      margin: 10px 0 0;
-      font-size: 12px;
-      color: rgba(2,6,23,.55);
-      line-height:1.5;
+      box-shadow: 0 14px 30px rgba(2,6,23,.10);
     }
 
+    .small{margin: 10px 0 0; font-size: 12px; color: rgba(2,6,23,.55); line-height:1.5}
     .infoRow{display:grid; gap:10px}
     .infoItem b{font-weight: 950}
     .muted{color:var(--muted)}
     a{color: var(--text)}
     a:hover{opacity:.85}
 
-    footer{
-      text-align:center;
-      color: rgba(2,6,23,.50);
-      font-size: 12px;
-      padding: 8px 0 0;
-    }
+    footer{text-align:center; color: rgba(2,6,23,.50); font-size: 12px; padding: 8px 0 0}
 
     @media (max-width: 980px){
-      header{justify-content:center}
       .layout{grid-template-columns: 1fr}
     }
     @media (max-width: 520px){
       .panelInner{padding:14px}
-      .btn{width:100%}
+      .btn{width:100%; min-width: 0}
     }
   </style>
 </head>
@@ -227,6 +216,10 @@
             <img class="logoMini" src="logo.png" alt="I Shirt You Not by Dawn logo" />
           </div>
 
+          <div class="btnRow" aria-label="Page actions">
+            <button class="btn btnBack" type="button" id="backBtn">← Back</button>
+          </div>
+
           <section class="layout" aria-label="Contact form and business info">
             <div class="box">
               <form id="contactForm">
@@ -249,7 +242,7 @@
 
                 <div class="btnRow">
                   <button class="btn btnPrimary" type="submit">Send Message</button>
-                  <button class="btn btnGhost" type="reset">Reset</button>
+                  <button class="btn" type="reset">Reset</button>
                 </div>
 
                 <p class="small">
@@ -268,7 +261,7 @@
 
                 <div class="infoItem">
                   <b>Email</b>
-                  <div class="muted"><a id="emailLink" href="#">your-email@example.com</a></div>
+                  <div class="muted"><a id="emailLink" href="#">ishirtyounotbydawn@gmail.com</a></div>
                 </div>
 
                 <div class="infoItem">
@@ -300,11 +293,17 @@
 
     // CHANGE THIS:
     const BUSINESS_EMAIL = "your-email@example.com";
-
     const emailLink = document.getElementById("emailLink");
-    emailLink.textContent = BUSINESS_EMAIL;
-    emailLink.href = `mailto:${BUSINESS_EMAIL}`;
+    emailLink.textContent = ishirtyounotbydawn@gmail.com;
+    emailLink.href = `mailto:${ishirtyounotbydawn@gmail.com}`;
 
+    // Smart back
+    document.getElementById("backBtn").addEventListener("click", () => {
+      if (window.history.length > 1) window.history.back();
+      else window.location.href = "index.html";
+    });
+
+    // Mailto submit
     document.getElementById("contactForm").addEventListener("submit", (e) => {
       e.preventDefault();
 
