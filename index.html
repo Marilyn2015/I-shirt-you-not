@@ -3,7 +3,57 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>I Shirt You Not by Dawn</title>
+
+<title>I Shirt You Not by Dawn | Custom Tees & Merch</title>
+<meta name="description" content="I Shirt You Not by Dawn — custom tees and merch with clean, durable prints. Proof approval before printing. One-offs and bulk orders with clear turnaround." />
+
+<!-- Crawlers -->
+<meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1" />
+<link rel="canonical" href="https://YOURDOMAIN.com/" />
+
+<!-- Open Graph -->
+<meta property="og:type" content="website" />
+<meta property="og:title" content="I Shirt You Not by Dawn | Custom Tees & Merch" />
+<meta property="og:description" content="Custom tees and merch with clean prints. Proof approval before printing. One-offs and bulk orders with clear turnaround." />
+<meta property="og:url" content="https://YOURDOMAIN.com/" />
+<meta property="og:image" content="https://YOURDOMAIN.com/og-image.jpg" />
+
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="I Shirt You Not by Dawn | Custom Tees & Merch" />
+<meta name="twitter:description" content="Custom tees and merch with clean prints. Proof approval before printing. One-offs and bulk orders with clear turnaround." />
+<meta name="twitter:image" content="https://YOURDOMAIN.com/og-image.jpg" />
+
+<meta name="theme-color" content="#07090b" />
+
+<!-- Optional favicons (add files if you have them) -->
+<link rel="icon" href="favicon.ico" />
+<link rel="apple-touch-icon" href="apple-touch-icon.png" />
+
+<!-- Structured data -->
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"Organization",
+  "name":"I Shirt You Not by Dawn",
+  "url":"https://YOURDOMAIN.com/",
+  "logo":"https://YOURDOMAIN.com/logo.png",
+  "sameAs":[]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"WebSite",
+  "name":"I Shirt You Not by Dawn",
+  "url":"https://YOURDOMAIN.com/",
+  "potentialAction":{
+    "@type":"SearchAction",
+    "target":"https://YOURDOMAIN.com/products.html?q={search_term_string}",
+    "query-input":"required name=search_term_string"
+  }
+}
+</script>
 
 <style>
 :root{
@@ -14,7 +64,6 @@
   --line:rgba(255,255,255,.14);
   --line2:rgba(255,255,255,.10);
   --panel:rgba(255,255,255,.06);
-  --panel2:rgba(255,255,255,.09);
   --shadow: 0 28px 80px rgba(0,0,0,.60);
   --radius: 18px;
   --max: 1120px;
@@ -22,6 +71,7 @@
   --hot:#ff2d55;
   --gold:#ffb703;
   --ice:#00b3ff;
+  --acid:#b6ff00;
   --ok:#30d158;
 }
 
@@ -31,10 +81,15 @@ body{
   margin:0;
   font-family: system-ui,Segoe UI,Roboto,Arial;
   color:var(--ink);
+
+  /* Paint splashes (premium, not childish) */
   background:
-    radial-gradient(900px 520px at 15% 10%, rgba(0,179,255,.12), transparent 55%),
-    radial-gradient(900px 520px at 85% 18%, rgba(255,183,3,.10), transparent 60%),
-    radial-gradient(900px 520px at 50% 92%, rgba(255,45,85,.08), transparent 60%),
+    radial-gradient(260px 190px at 12% 18%, rgba(255,45,85,.55), transparent 65%),
+    radial-gradient(320px 240px at 22% 78%, rgba(0,179,255,.45), transparent 68%),
+    radial-gradient(420px 320px at 86% 22%, rgba(255,183,3,.38), transparent 70%),
+    radial-gradient(300px 240px at 90% 76%, rgba(182,255,0,.28), transparent 72%),
+    radial-gradient(520px 380px at 50% 8%, rgba(154,80,255,.22), transparent 72%),
+    radial-gradient(520px 380px at 50% 96%, rgba(255,45,85,.16), transparent 72%),
     linear-gradient(180deg, #050608 0%, #07090b 55%, #050608 100%);
 }
 
@@ -47,7 +102,7 @@ header{
   top: 0;
   z-index: 50;
   backdrop-filter: blur(12px);
-  background: rgba(7,9,11,.72);
+  background: rgba(7,9,11,.74);
   border-bottom:1px solid var(--line2);
 }
 header > nav{
@@ -200,7 +255,7 @@ h1{
 .btn:hover{ transform: translateY(-1px); }
 .btn:active{ transform: translateY(0px); }
 
-/* Trust pills (professional, not neon chips) */
+/* Trust */
 .trust{
   margin-top: 14px;
   display:flex;
@@ -225,7 +280,7 @@ h1{
   display:inline-block;
 }
 
-/* Product image / logo presentation */
+/* Image */
 figure{
   margin:0;
   border-radius: var(--radius);
@@ -280,7 +335,7 @@ article p{
   line-height: 1.6;
 }
 
-/* Footer */
+/* Footer + policies */
 footer{
   margin-top: 22px;
   border-top: 1px solid var(--line2);
@@ -296,6 +351,26 @@ footer{
   gap: 14px;
   flex-wrap: wrap;
 }
+.policy{
+  margin-top: 12px;
+  border: 1px solid rgba(255,255,255,.10);
+  background: rgba(0,0,0,.18);
+  border-radius: var(--radius);
+  padding: 14px;
+}
+.policy h2{
+  margin: 0 0 8px;
+  font-size: 12px;
+  letter-spacing:.14em;
+  text-transform:uppercase;
+  color: var(--ink);
+}
+.policy ul{
+  margin: 0;
+  padding-left: 18px;
+  color: var(--muted);
+}
+.policy li{ margin: 6px 0; }
 footer a{ text-decoration: underline; text-underline-offset: 3px; }
 
 @media(max-width: 900px){
@@ -372,7 +447,7 @@ footer a{ text-decoration: underline; text-underline-offset: 3px; }
       </article>
       <article>
         <h3>Artwork help</h3>
-        <p>We can refine your idea so it prints clean and looks legit. You approve the proof before it goes to press.</p>
+        <p>We can refine your idea so it prints clean and looks legit. You approve the proof before it goes to print.</p>
       </article>
     </div>
   </section>
@@ -386,7 +461,7 @@ footer a{ text-decoration: underline; text-underline-offset: 3px; }
       </article>
       <article>
         <h3>2) Approve proof</h3>
-        <p>We send a mock + final quote. Nothing prints until you approve.</p>
+        <p>We send a mock + final quote. Nothing is printed until you approve.</p>
       </article>
       <article>
         <h3>3) Print & deliver</h3>
@@ -404,6 +479,19 @@ footer a{ text-decoration: underline; text-underline-offset: 3px; }
       <div>
         © <span id="year"></span> • <a href="contact.html">Contact</a> • <a href="products.html">Products</a>
       </div>
+    </div>
+
+    <div class="policy" aria-label="Policies">
+      <h2>Policies</h2>
+      <ul>
+        <li><strong>Proof approval:</strong> We do not print until you approve the final proof.</li>
+        <li><strong>Turnaround:</strong> Typical turnaround is <strong>3–7 business days</strong> after proof approval (rush options may be available).</li>
+        <li><strong>Refunds/returns:</strong> Custom-printed items are generally non-returnable unless there is a production defect.</li>
+        <li><strong>Reprints:</strong> If the finished item differs from the approved proof due to our error, we will reprint.</li>
+        <li><strong>Cancellations:</strong> Orders can be canceled prior to print. Once printing starts, cancellations may not be possible.</li>
+        <li><strong>Shipping/pickup:</strong> Shipping cost and estimated delivery are provided at checkout/quote. Local pickup (if offered) is arranged by appointment.</li>
+        <li><strong>Privacy:</strong> We use your info only to fulfill orders and communicate about your project; we do not sell customer data.</li>
+      </ul>
     </div>
   </footer>
 </main>
