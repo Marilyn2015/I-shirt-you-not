@@ -21,10 +21,7 @@
     --max:1120px;
     --shadow: 0 28px 90px rgba(0,0,0,.65);
 
-    /* layout rhythm */
-    --pad: 24px;
-    --gap: 18px;
-    --radius: 18px;
+    --radius:18px;
   }
 
   *{box-sizing:border-box}
@@ -118,7 +115,6 @@
     font-size: 14px;
   }
 
-  /* "How it works" strip */
   .how{
     padding: 18px 22px 22px;
     border-top:1px solid rgba(255,255,255,.10);
@@ -158,7 +154,7 @@
   }
   .quoteTitle{
     text-align:center;
-    margin:0;
+    margin:0 0 18px;
     font-size: clamp(20px, 2.4vw, 28px);
     line-height:1.1;
     letter-spacing:.6px;
@@ -173,41 +169,12 @@
     line-height:1.55;
   }
 
-  /* centered “tutorial/testimonial” image block */
-  .quoteHero{
-    max-width: 980px;
-    margin: 16px auto 22px;
-  }
-  .testImg{
-    border-radius: var(--radius);
-    border:1px solid rgba(255,255,255,.14);
-    overflow:hidden;
-    min-height: 0;
-    height: 240px;
-    max-height: 280px;
-    position:relative;
-    background:#0b0b0e;
-  }
-  .testImg img{
-    width:100%; height:100%;
-    object-fit:cover;
-    object-position:center;
-    transform:none;
-    filter: saturate(1.02) contrast(1.03);
-  }
-  .testImg::after{
-    content:"";
-    position:absolute; inset:0;
-    background: linear-gradient(180deg, rgba(0,0,0,.10), rgba(0,0,0,.58));
-    pointer-events:none;
-  }
-
-  .formWrap{
+  /* ===== NEW: 3-column layout (email | form | square image) ===== */
+  .quoteLayout{
     display:grid;
-    grid-template-columns: 1.1fr .9fr;
-    gap:22px;
+    grid-template-columns: 1.05fr .95fr 240px;
+    gap:18px;
     align-items:start;
-    margin-top:0;
   }
 
   .card2{
@@ -226,7 +193,6 @@
 
   .row{display:grid; grid-template-columns:1fr; gap:12px}
   label{font-size:12px; color:rgba(255,255,255,.82)}
-
   input,textarea,select{
     width:100%;
     border-radius: 12px;
@@ -260,7 +226,6 @@
   }
   .btn:hover{filter:brightness(1.04)}
 
-  /* Service info row */
   .infoRow{
     margin-top:16px;
     display:grid;
@@ -275,10 +240,32 @@
     font-size:14px;
   }
 
-  /* FAQ */
-  .faq{
-    margin-top:22px;
+  /* ===== square image card ===== */
+  .testImg{
+    border-radius: var(--radius);
+    border:1px solid rgba(255,255,255,.14);
+    background:#0b0b0e;
+    overflow:hidden;
+    position:relative;
+    width: 240px;
+    aspect-ratio: 1 / 1;   /* keeps it square */
   }
+  .testImg img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    object-position:center;
+    transform:none;
+    filter: saturate(1.02) contrast(1.03);
+  }
+  .testImg::after{
+    content:"";
+    position:absolute; inset:0;
+    background: linear-gradient(180deg, rgba(0,0,0,.05), rgba(0,0,0,.55));
+    pointer-events:none;
+  }
+
+  .faq{ margin-top:22px; }
   .faq h3{
     margin:0 0 10px;
     font-size: 18px;
@@ -310,12 +297,20 @@
   }
 
   /* responsive */
+  @media (max-width: 1100px){
+    .quoteLayout{
+      grid-template-columns: 1fr 1fr;
+    }
+    .testImg{
+      width: 100%;
+      max-width: 320px;
+      justify-self: center;
+    }
+  }
+
   @media (max-width: 980px){
     .howGrid{grid-template-columns:1fr}
-    .formWrap{grid-template-columns:1fr}
     .infoRow{grid-template-columns:1fr}
-    .testImg{ height: 210px; max-height: 240px; }
-    .quoteHero{ margin: 14px auto 18px; }
   }
 
   /* mobile topbar fix */
@@ -326,19 +321,16 @@
       gap: 10px;
       padding: 10px 0;
     }
-
     .email{
       width: 100%;
       justify-content: center;
       font-size: 13px;
     }
-
     .nav{
       width: 100%;
       justify-content: center;
       gap: 10px;
     }
-
     .nav a{
       flex: 1;
       text-align: center;
@@ -348,8 +340,8 @@
     }
 
     .quoteWrap{ padding: 22px 16px 24px; }
-    .testImg{ height: 180px; max-height: 200px; }
-    .formWrap{ gap: 14px; }
+    .quoteLayout{ grid-template-columns: 1fr; }
+    .testImg{ max-width: 260px; width: 100%; }
   }
 
   @media (max-width: 380px){
@@ -413,13 +405,8 @@
       <div class="quoteWrap">
         <h2 class="quoteTitle">GET A QUOTE FOR YOUR CUSTOM ORDER</h2>
 
-        <div class="quoteHero">
-          <div class="testImg" aria-label="Testimonial photo">
-            <img src="testimonial.jpg" alt="Happy customer" />
-          </div>
-        </div>
-
-        <div class="formWrap">
+        <div class="quoteLayout">
+          <!-- left: email/info -->
           <div class="card2">
             <div style="font-weight:1000; text-transform:uppercase; letter-spacing:.6px;">Email</div>
             <div class="qsub" style="margin-top:8px;">
@@ -450,6 +437,7 @@
             </div>
           </div>
 
+          <!-- middle: form -->
           <form class="form" onsubmit="return demoSubmit(event)">
             <div class="row">
               <div>
@@ -481,6 +469,11 @@
               <div class="qsub" id="note" style="margin:0"></div>
             </div>
           </form>
+
+          <!-- right: small square image -->
+          <div class="testImg" aria-label="Testimonial photo">
+            <img src="testimonial.jpg" alt="Happy customer" />
+          </div>
         </div>
 
         <div class="faq">
