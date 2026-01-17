@@ -360,6 +360,21 @@
     object-position: 50% 35%; /* keeps face higher in frame */
   }
 }
+/* ===== TESTIMONIAL IMAGE: NOT SO BIG (ALL SIZES) ===== */
+.testImg{
+  min-height: 0;        /* remove the 320px floor */
+  height: 260px;        /* desktop/tablet height */
+  max-height: 320px;    /* safety cap */
+}
+
+.testImg img{
+  transform: none;      /* remove zoom */
+}
+
+/* ===== MOBILE: SMALLER ===== */
+@media (max-width: 640px){
+  .testImg{ height: 190px; }
+}
 
 </style>
 </head>
