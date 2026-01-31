@@ -101,16 +101,17 @@
     border:1px solid rgba(255,255,255,.10);
     box-shadow: var(--shadow);
   }
- .heroInner{
+.heroInner{
   position:relative;
-  min-height: unset;               /* was 640px (or 520px) — remove it */
+  min-height: unset;
   display:grid;
   grid-template-columns: 1.15fr .85fr;
-  gap: 18px;                       /* tighter */
-  padding: 26px 32px 24px;         /* tighter vertical padding */
-  background: #000;
-  align-items: start;              /* IMPORTANT: was centering everything */
+  gap: 16px;                 /* was 18px */
+  padding: 18px 32px 22px;   /* was 26px 32px 24px */
+  background:#000;
+  align-items:start;
 }
+
 
   .heroBg{
     position:absolute; inset:0;
@@ -166,7 +167,7 @@
     box-shadow: 0 0 18px rgba(255,45,85,.25);
   }
 
-  .brand{ margin: 6px 0 10px; }
+  .brand{ margin: 0 0 6px; }
   .logo{
     width: 340px;
     max-width: 100%;
@@ -459,7 +460,7 @@
 
       <div class="heroInner">
         <div class="heroLeft">
-          <div class="kicker"><span class="kdot"></span> CUSTOM PRINTS • CLEAN LOOK • FAST TURNAROUND</div>
+         
 
           <div class="brand" aria-label="Brand">
             <img class="logo" src="logo.png" alt="I Shirt You Not logo" />
