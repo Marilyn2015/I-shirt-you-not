@@ -112,7 +112,6 @@
   align-items: start;              /* IMPORTANT: was centering everything */
 }
 
-
   .heroBg{
     position:absolute; inset:0;
     width:100%; height:100%;
@@ -131,6 +130,20 @@
     pointer-events:none;
   }
   .heroLeft, .heroRight{position:relative; z-index:2}
+
+  /* === ONLY NEW/CHANGED SPACING FIXES (tighten left column) === */
+  .heroLeft{
+    display:flex;
+    flex-direction:column;
+    align-items:flex-start;
+    gap: 10px;
+  }
+  .kicker{ margin:0; }
+  .brand{ margin:0; }
+  h1{ margin:0; }
+  .sub{ margin:0; }
+  .ctaRow{ margin-top: 6px; }
+  /* === end spacing fixes === */
 
   .kicker{
     display:inline-flex;
@@ -325,7 +338,7 @@
     grid-template-columns: 1.05fr .95fr;
     gap: 16px;
     padding: 22px;
-    border-top: 1px solid rgba(255,255,255,.08);
+    border-top: 1px solid (255,255,255,.08);
     background: rgba(0,0,0,.18);
   }
   .rackCopy h3{
@@ -439,18 +452,16 @@
 
   <main class="container">
     <section class="hero" aria-label="Hero">
-      <!-- Embedded rack image (replace base64) -->
-      <img class="heroBg" src="data:image/jpeg;base64,PASTE_RACK_BASE64_HERE" alt="" aria-hidden="true" />
+      <!-- Hero background image -->
+      <img class="heroBg" src="rack.jpg" alt="" aria-hidden="true" />
       <div class="heroShade" aria-hidden="true"></div>
 
       <div class="heroInner">
         <div class="heroLeft">
           <div class="kicker"><span class="kdot"></span> CUSTOM PRINTS • CLEAN LOOK • FAST TURNAROUND</div>
 
-          <!-- Embedded logo (replace base64) -->
           <div class="brand" aria-label="Brand">
             <img class="logo" src="logo.png" alt="I Shirt You Not logo" />
-
           </div>
 
           <h1>
@@ -527,7 +538,6 @@
 
         <div class="rackImg" aria-label="Clothing rack image">
           <img src="rack.jpg" alt="Clothing rack" />
-
         </div>
       </div>
     </section>
