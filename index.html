@@ -3,23 +3,24 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>I Shirt You Not — Custom Tee’s With Attitude</title>
+<title>I Shirt You Not — Custom Tees With Attitude</title>
 <meta name="description" content="Custom tees and hoodies with attitude. Bold prints. Fast turnaround. Real quality." />
 <meta name="robots" content="index,follow,max-image-preview:large" />
-<link rel="icon" href="logo.png" />
 
 <style>
   :root{
-    --ink:#fff;
-    --muted:rgba(255,255,255,.72);
-    --line:rgba(255,255,255,.14);
+    --bg:#000000;
+    --ink:rgba(255,255,255,.94);
+    --muted:rgba(255,255,255,.70);
 
     --hot:#ff2d55;
     --ice:#00b3ff;
     --gold:#ffb703;
 
-    --max:1120px;
-    --shadow: 0 28px 90px rgba(0,0,0,.65);
+    --max:1160px;
+
+    --shadow: 0 28px 90px rgba(0,0,0,.72);
+    --shadow2: 0 18px 40px rgba(0,0,0,.60);
   }
 
   *{box-sizing:border-box}
@@ -28,34 +29,39 @@
     margin:0;
     font-family: system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
     color:var(--ink);
-    background:
-      radial-gradient(900px 520px at 18% 20%, rgba(255,45,85,.16), transparent 62%),
-      radial-gradient(820px 520px at 82% 30%, rgba(0,179,255,.14), transparent 62%),
-      radial-gradient(520px 380px at 64% 78%, rgba(255,183,3,.10), transparent 66%),
-      linear-gradient(180deg, #030304 0%, #0b0b0e 55%, #030304 100%);
+    background: var(--bg);
     overflow-x:hidden;
   }
   a{color:inherit;text-decoration:none}
   img{display:block;max-width:100%}
 
-  .container{max-width:var(--max); margin:0 auto; padding:0 18px}
+  .container{max-width:var(--max); margin:0 auto; padding:0 22px}
 
-  /* gritty grain */
   .grain{
     position:fixed; inset:-40%;
-    pointer-events:none; z-index:-1;
-    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='220' height='220' filter='url(%23n)' opacity='.12'/%3E%3C/svg%3E");
-    transform: rotate(8deg);
+    pointer-events:none; z-index:-2;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='220' height='220' filter='url(%23n)' opacity='.10'/%3E%3C/svg%3E");
+    transform: rotate(10deg);
     mix-blend-mode: overlay;
+    opacity:.55;
+  }
+  .glow{
+    position:fixed;
+    inset:-120px;
+    z-index:-3;
+    pointer-events:none;
+    background:
+      radial-gradient(900px 520px at 18% 20%, rgba(255,45,85,.18), transparent 62%),
+      radial-gradient(820px 520px at 82% 26%, rgba(0,179,255,.14), transparent 62%),
+      radial-gradient(520px 380px at 60% 78%, rgba(255,183,3,.10), transparent 66%);
     opacity:.85;
   }
 
-  /* top bar */
   .topbar{
     position:sticky; top:0; z-index:1000;
     backdrop-filter: blur(14px);
-    background: rgba(0,0,0,.46);
-    border-bottom:1px solid var(--line);
+    background: rgba(0,0,0,.58);
+    border-bottom:1px solid rgba(255,255,255,.10);
   }
   .topbarRow{
     display:flex; align-items:center; justify-content:space-between;
@@ -67,250 +73,344 @@
   }
   .email svg{opacity:.9}
   .nav{
-    display:flex; align-items:center; gap:18px;
+    display:flex; align-items:center; gap:12px;
     font-size:14px; font-weight:900; letter-spacing:.2px;
   }
   .nav a{
-    padding:8px 12px;
+    padding:9px 12px;
     border-radius:999px;
     border:1px solid transparent;
     opacity:.95;
   }
   .nav a:hover{
-    border-color:rgba(255,255,255,.16);
+    border-color:rgba(255,255,255,.14);
     background:rgba(255,255,255,.06);
   }
   .nav a.active{
-    border-color:rgba(255,255,255,.22);
+    border-color:rgba(255,255,255,.20);
     background:rgba(255,255,255,.08);
   }
 
-  /* panel */
-  main{padding:18px 0 0}
-  .panel{
-    border-radius: 22px;
-    border:1px solid rgba(255,255,255,.14);
-    background: linear-gradient(180deg, rgba(255,255,255,.07), rgba(255,255,255,.02));
-    box-shadow: var(--shadow);
-    overflow:hidden;
-  }
+  main{padding: 26px 0 54px}
 
-  /* HERO */
   .hero{
     position:relative;
-    height: 520px;
-    border-bottom:1px solid rgba(255,255,255,.10);
+    border-radius: 26px;
     overflow:hidden;
-    background:#0b0b0e;
+    border:1px solid rgba(255,255,255,.10);
+    box-shadow: var(--shadow);
   }
-  .heroPhoto{
+  .heroInner{
+    position:relative;
+    min-height: 640px;
+    display:grid;
+    grid-template-columns: 1.15fr .85fr;
+    gap: 24px;
+    padding: 42px;
+    background: #000;
+  }
+  .heroBg{
     position:absolute; inset:0;
     width:100%; height:100%;
     object-fit:cover;
     object-position:center;
-    transform: translateZ(0) scale(1.02);
-    filter: saturate(1.02) contrast(1.04);
+    filter: saturate(1.05) contrast(1.05);
+    transform: scale(1.04);
+    opacity: .30;
   }
   .heroShade{
     position:absolute; inset:0;
     background:
-      radial-gradient(900px 520px at 20% 20%, rgba(255,45,85,.18), transparent 62%),
-      radial-gradient(820px 520px at 82% 30%, rgba(0,179,255,.14), transparent 62%),
-      linear-gradient(180deg, rgba(0,0,0,.20), rgba(0,0,0,.72));
+      radial-gradient(900px 520px at 20% 20%, rgba(255,45,85,.20), transparent 62%),
+      radial-gradient(820px 520px at 82% 28%, rgba(0,179,255,.14), transparent 62%),
+      linear-gradient(180deg, rgba(0,0,0,.35), rgba(0,0,0,.88));
     pointer-events:none;
   }
-  .heroLogoWrap{
-    position:absolute;
-    left:50%;
-    top: 56%;
-    transform: translate(-50%,-50%);
-    width: min(520px, 78%);
-    display:flex; justify-content:center;
-    filter: drop-shadow(0 18px 26px rgba(0,0,0,.65));
-    pointer-events:none;
-  }
-  .heroLogo{width:100%; height:auto;}
-  .heroCta{
-    position:absolute;
-    left:50%; bottom:22px;
-    transform: translateX(-50%);
-    width: min(360px, 86%);
-    display:flex; justify-content:center;
-    z-index:2;
-  }
-  .btnGold{
-    display:inline-flex; align-items:center; justify-content:center;
-    width:100%;
-    padding: 14px 16px;
-    border-radius: 12px;
-    border:1px solid rgba(255,183,3,.55);
-    background: linear-gradient(90deg, rgba(255,183,3,.96), rgba(255,45,85,.75));
-    color:#130a00;
-    font-weight:1000;
-    letter-spacing:.7px;
-    text-transform:uppercase;
-    box-shadow: 0 20px 40px rgba(0,0,0,.45);
-    cursor:pointer;
-  }
-  .btnGold:hover{filter:brightness(1.04)}
+  .heroLeft, .heroRight{position:relative; z-index:2}
 
-  /* HEADLINE */
-  .headline{
-    padding: 26px 22px 18px;
-    text-align:center;
-    background: rgba(0,0,0,.18);
+  .kicker{
+    display:inline-flex;
+    align-items:center;
+    gap: 10px;
+    padding: 8px 12px;
+    border-radius: 999px;
+    border: 1px solid rgba(255,255,255,.14);
+    background: rgba(255,255,255,.05);
+    color: rgba(255,255,255,.80);
+    font-size: 12px;
+    letter-spacing: .18em;
+    text-transform: uppercase;
+    font-weight: 900;
+    width: fit-content;
   }
-  .headline h1{
-    margin:0;
-    font-size: clamp(28px, 4vw, 44px);
-    letter-spacing:.8px;
-    text-transform:uppercase;
-    font-weight:1000;
+  .kdot{
+    width:10px;height:10px;border-radius:999px;
+    background: linear-gradient(180deg, var(--hot), var(--ice));
+    box-shadow: 0 0 18px rgba(255,45,85,.25);
   }
-  .headline h1 .accent{color:var(--hot)}
-  .headline p{
-    margin:10px auto 0;
-    max-width: 76ch;
+
+  .brand{margin: 18px 0 18px}
+  .logo{
+    width: 420px;
+    max-width: 100%;
+    height:auto;
+    filter: drop-shadow(0 18px 34px rgba(0,0,0,.70));
+  }
+
+  h1{
+    margin: 14px 0 10px;
+    font-size: clamp(34px, 4.8vw, 58px);
+    line-height: 1.02;
+    letter-spacing: -0.8px;
+    text-transform: uppercase;
+    font-weight: 1000;
+  }
+  .accent{
+    background: linear-gradient(90deg, var(--hot), var(--ice));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+  .sub{
+    margin: 0 0 18px;
+    max-width: 60ch;
     color: var(--muted);
-    line-height:1.55;
-    font-size: 14px;
+    line-height: 1.65;
+    font-size: 15px;
   }
 
   .ctaRow{
-    margin-top:16px;
     display:flex;
-    justify-content:center;
     gap:12px;
     flex-wrap:wrap;
+    margin-top: 14px;
   }
   .btn{
     display:inline-flex; align-items:center; justify-content:center;
     padding: 12px 16px;
-    border-radius: 12px;
+    border-radius: 999px;
     border:1px solid rgba(255,255,255,.16);
     background: rgba(255,255,255,.06);
-    font-weight:950;
-    letter-spacing:.6px;
-    text-transform:uppercase;
+    font-weight: 950;
+    letter-spacing: .6px;
+    text-transform: uppercase;
+    line-height: 1;
+    transition: transform .12s ease, filter .12s ease;
+    user-select:none;
   }
+  .btn:hover{filter:brightness(1.06); transform: translateY(-1px)}
+  .btn:active{transform: translateY(0px) scale(.99)}
   .btn.primary{
     border:none;
-    color:#0b0b0e;
-    background: linear-gradient(90deg, rgba(255,45,85,.92), rgba(0,179,255,.76));
+    color:#070709;
+    background: linear-gradient(90deg, rgba(255,45,85,.95), rgba(0,179,255,.80));
   }
-  .btn:hover{filter:brightness(1.04)}
+  .btn.gold{
+    border:1px solid rgba(255,183,3,.55);
+    color:#120a00;
+    background: linear-gradient(90deg, rgba(255,183,3,.96), rgba(255,45,85,.70));
+  }
 
-  /* MID */
-  .mid{
+  .card{
+    border: 1px solid rgba(255,255,255,.12);
+    background: rgba(255,255,255,.04);
+    border-radius: 20px;
+    padding: 18px;
+    box-shadow: var(--shadow2);
+  }
+  .cardTitle{
+    margin: 0 0 8px;
+    font-size: 13px;
+    letter-spacing: .18em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,.76);
+    font-weight: 1000;
+  }
+  .cardP{
+    margin: 0 0 14px;
+    color: var(--muted);
+    line-height: 1.65;
+    font-size: 14px;
+  }
+  .bullets{
     display:grid;
-    grid-template-columns: 1.15fr .85fr;
-    gap:18px;
+    gap: 10px;
+    margin: 0;
+    padding: 0;
+    list-style:none;
+  }
+  .bullets li{
+    display:flex;
+    gap: 10px;
+    padding: 12px 12px;
+    border-radius: 16px;
+    border: 1px solid rgba(255,255,255,.10);
+    background: rgba(0,0,0,.34);
+    color: rgba(255,255,255,.85);
+    font-size: 14px;
+    line-height: 1.35;
+  }
+  .dot{
+    width: 10px; height: 10px; border-radius: 999px;
+    margin-top: 5px;
+    background: linear-gradient(180deg, var(--hot), var(--ice));
+    flex: 0 0 10px;
+  }
+
+  .section{
+    margin-top: 18px;
+    border-radius: 22px;
+    border: 1px solid rgba(255,255,255,.10);
+    background: rgba(255,255,255,.03);
+    overflow:hidden;
+  }
+  .sectionHeader{padding: 22px 22px 10px}
+  .sectionKicker{
+    font-size: 12px;
+    letter-spacing: .18em;
+    text-transform: uppercase;
+    font-weight: 950;
+    color: rgba(255,255,255,.70);
+    margin: 0 0 8px;
+    display:flex; align-items:center; gap:10px;
+  }
+  .sectionKicker .kdot{width:9px;height:9px}
+  .sectionHeader h2{
+    margin: 0 0 6px;
+    font-size: 22px;
+    text-transform: uppercase;
+    font-weight: 1000;
+  }
+  .sectionHeader p{
+    margin: 0;
+    color: var(--muted);
+    line-height: 1.7;
+    font-size: 14px;
+    max-width: 78ch;
+  }
+
+  .grid3{
+    display:grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 14px;
+    padding: 14px 22px 22px;
+  }
+  .mini{
+    border-radius: 18px;
+    border: 1px solid rgba(255,255,255,.10);
+    background: rgba(0,0,0,.28);
+    padding: 16px;
+  }
+  .mini strong{
+    display:block;
+    margin-bottom: 6px;
+    font-size: 16px;
+    font-weight: 1000;
+    text-transform: uppercase;
+    letter-spacing: .5px;
+  }
+  .mini span{
+    display:block;
+    color: var(--muted);
+    line-height: 1.7;
+    font-size: 14px;
+  }
+
+  .rack{
+    display:grid;
+    grid-template-columns: 1.05fr .95fr;
+    gap: 16px;
     padding: 22px;
-    border-top:1px solid rgba(255,255,255,.10);
+    border-top: 1px solid rgba(255,255,255,.08);
     background: rgba(0,0,0,.18);
   }
-  .midCopy h2{
+  .rackCopy h3{
     margin:0;
     font-size: 18px;
     letter-spacing:.6px;
-    text-transform:uppercase;
+    text-transform: uppercase;
     font-weight:1000;
   }
-  .midCopy p{
+  .rackCopy p{
     margin:10px 0 0;
     color:var(--muted);
-    line-height:1.6;
+    line-height:1.7;
     font-size:14px;
+    max-width: 62ch;
   }
-  .midImg{
-    border-radius: 16px;
-    border:1px solid rgba(255,255,255,.14);
+  .rackImg{
+    border-radius: 18px;
+    border: 1px solid rgba(255,255,255,.12);
     overflow:hidden;
-    min-height: 180px;
+    min-height: 220px;
     position:relative;
-    background:#0b0b0e;
+    background:#050507;
   }
-  .midImg img{
+  .rackImg img{
     width:100%; height:100%;
     object-fit:cover;
     object-position:center;
-    filter: saturate(1.02) contrast(1.03);
-    transform: scale(1.02);
+    filter: saturate(1.05) contrast(1.05);
+    transform: scale(1.03);
   }
-  .midImg::after{
+  .rackImg::after{
     content:"";
     position:absolute; inset:0;
-    background: linear-gradient(180deg, rgba(0,0,0,.15), rgba(0,0,0,.55));
+    background: linear-gradient(180deg, rgba(0,0,0,.12), rgba(0,0,0,.62));
     pointer-events:none;
   }
 
-  /* SIMPLE FOOTER */
   footer{
-    padding: 16px 22px 18px;
-    border-top:1px solid rgba(255,255,255,.10);
-    background: rgba(0,0,0,.22);
+    margin-top: 18px;
+    border-radius: 22px;
+    border: 1px solid rgba(255,255,255,.10);
+    background: rgba(255,255,255,.02);
+    padding: 16px 18px;
     display:flex;
     justify-content:space-between;
     flex-wrap:wrap;
     gap:10px;
   }
-  .legal{
-    color: rgba(255,255,255,.70);
-    font-size:12px;
-  }
+  .legal{color: rgba(255,255,255,.62); font-size:12px}
+  .legal b{color: rgba(255,255,255,.90)}
 
   @media (max-width: 980px){
-    .mid{grid-template-columns:1fr}
-    .hero{height: 460px}
-    .heroLogoWrap{width:min(460px, 86%); top:58%}
+    .heroInner{grid-template-columns:1fr; min-height: unset; padding: 34px}
+    .logo{width: 380px}
+    .grid3{grid-template-columns:1fr}
+    .rack{grid-template-columns:1fr}
   }
   @media (max-width: 520px){
-    .hero{height: 420px}
-    .heroLogoWrap{width:92%; top:60%}
+    main{padding: 18px 0 44px}
+    .container{padding: 0 16px}
+    .hero{border-radius: 22px}
+    .heroInner{padding: 22px}
+    .logo{width: 320px}
+    .btn{width:100%}
+    .grid3{padding: 12px 16px 16px}
+    .sectionHeader{padding: 18px 16px 8px}
+    .rack{padding: 16px}
   }
 
-  /* ===== MOBILE TOPBAR FIX (improved email wrapping) ===== */
   @media (max-width: 640px){
-    .topbarRow{
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 10px;
-      padding: 10px 0;
-    }
-
+    .topbarRow{flex-wrap: wrap; justify-content: center; gap: 10px; padding: 10px 0}
     .email{
       width: 100%;
       justify-content: center;
       font-size: 13px;
-      white-space: normal;      /* allow wrapping */
-      overflow-wrap: anywhere;  /* never clip last char */
+      white-space: normal;
+      overflow-wrap: anywhere;
       text-align:center;
       line-height:1.2;
     }
-
-    .email a{
-      display:inline-block;
-      max-width: 100%;
-    }
-
-    .nav{
-      width: 100%;
-      justify-content: center;
-      gap: 10px;
-    }
-
-    .nav a{
-      flex: 1;
-      text-align: center;
-      padding: 10px 10px;
-      border-radius: 14px;
-      font-size: 13px;
-    }
+    .nav{width: 100%; justify-content: center; gap: 10px}
+    .nav a{flex: 1; text-align: center; padding: 10px 10px; border-radius: 14px; font-size: 13px}
   }
 </style>
 </head>
 
 <body>
+  <div class="glow" aria-hidden="true"></div>
   <div class="grain" aria-hidden="true"></div>
 
   <div class="topbar">
@@ -334,63 +434,106 @@
   </div>
 
   <main class="container">
-    <section class="panel">
+    <section class="hero" aria-label="Hero">
+      <!-- Embedded rack image (replace base64) -->
+      <img class="heroBg" src="data:image/jpeg;base64,PASTE_RACK_BASE64_HERE" alt="" aria-hidden="true" />
+      <div class="heroShade" aria-hidden="true"></div>
 
-      <!-- HERO IMAGE (landing only) -->
-      <div class="hero">
-        
-        <div class="heroShade" aria-hidden="true"></div>
+      <div class="heroInner">
+        <div class="heroLeft">
+          <div class="kicker"><span class="kdot"></span> CUSTOM PRINTS • CLEAN LOOK • FAST TURNAROUND</div>
 
-        <div class="heroLogoWrap">
-          <img class="heroLogo" src="logo.png" alt="I Shirt You Not logo" />
-        </div>
+          <!-- Embedded logo (replace base64) -->
+          <div class="brand" aria-label="Brand">
+            <img class="logo" src="data:image/png;base64,PASTE_LOGO_BASE64_HERE" alt="I Shirt You Not logo" />
+          </div>
 
-        <div class="heroCta">
-          <a class="btnGold" href="contact.html">GET A QUOTE</a>
-        </div>
-      </div>
+          <h1>
+            Custom Tees & Hoodies<br />
+            <span class="accent">With Attitude</span>
+          </h1>
 
-      <!-- HEADLINE -->
-      <div class="headline">
-        <h1>CUSTOM TEES AND HOODIES<br><span class="accent">WITH ATTITUDE!</span></h1>
-        <p>
-          Loud designs. Clean prints. Real quality. Tell us what you want and we’ll make it look dope af.
-        </p>
-        <div class="ctaRow">
-          <a class="btn primary" href="products.html">SHOP PRODUCTS</a>
-          <a class="btn" href="contact.html">GET A QUOTE</a>
-        </div>
-      </div>
-
-      <!-- MID SECTION -->
-      <div class="mid">
-        <div class="midCopy">
-          <h2>Your attitude. Your style. Your tee.</h2>
-          <p>
-            Welcome to the most exclusive custom T-shirt shop on the web. We specialize in custom tees and hoodies that match your personality.
-            Bold, unique, and printed clean so you stand out in any crowd.
+          <p class="sub">
+            Loud designs. Clean prints. Real quality. Tell us what you want and we’ll make it look dope — without looking cheap.
           </p>
-          <div class="ctaRow" style="justify-content:flex-start; margin-top:14px">
-            <a class="btn primary" href="products.html">SHOP NOW</a>
+
+          <div class="ctaRow">
+            <a class="btn gold" href="contact.html">Get a Quote</a>
+            <a class="btn primary" href="products.html">Shop Products</a>
           </div>
         </div>
 
-        <div class="midImg" aria-label="Clothing rack image">
-          <img src="rack.jpg" alt="Clothing rack" />
-        </div>
+        <aside class="heroRight">
+          <div class="card">
+            <div class="cardTitle">What you get</div>
+            <p class="cardP">
+              Clean setup, solid blanks, and prints that don’t look like a bargain-bin mess.
+            </p>
+            <ul class="bullets">
+              <li><span class="dot"></span> Proof before print — you approve it</li>
+              <li><span class="dot"></span> Sharp lines + consistent color</li>
+              <li><span class="dot"></span> Small runs or bulk orders</li>
+            </ul>
+
+            <div class="ctaRow" style="margin-top:14px">
+              <a class="btn" href="contact.html">Start a Quote</a>
+              <a class="btn" href="products.html">See Options</a>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section class="section" aria-label="How it works">
+      <div class="sectionHeader">
+        <div class="sectionKicker"><span class="kdot"></span> SIMPLE PROCESS</div>
+        <h2>How it works</h2>
+        <p>Pick what you want, send the idea, approve the proof, and we print it clean.</p>
       </div>
 
-      <!-- FOOTER (no contact section on landing) -->
-      <footer>
-        <div class="legal">© <span id="year"></span> I Shirt You Not. All rights reserved.</div>
-        <div class="legal">Email: <a href="mailto:ishirtyounot@gmail.com"><b>ishirtyounot@gmail.com</b></a></div>
-      </footer>
-
+      <div class="grid3">
+        <div class="mini">
+          <strong>1) Choose</strong>
+          <span>Tees, hoodies, or both. We’ll recommend the right blanks for your budget.</span>
+        </div>
+        <div class="mini">
+          <strong>2) Design</strong>
+          <span>Upload your artwork or describe the vibe. We set it up crisp and centered.</span>
+        </div>
+        <div class="mini">
+          <strong>3) Approve + Print</strong>
+          <span>You approve the proof, then we print and deliver. No surprises.</span>
+        </div>
+      </div>
     </section>
+
+    <section class="section" aria-label="About">
+      <div class="rack">
+        <div class="rackCopy">
+          <h3>Your attitude. Your style. Your tee.</h3>
+          <p>
+            Bold, clean, and built to stand out. Loud or minimal — either way, it’ll look sharp.
+          </p>
+          <div class="ctaRow" style="justify-content:flex-start; margin-top:14px">
+            <a class="btn primary" href="products.html">Shop Now</a>
+            <a class="btn" href="contact.html">Get a Quote</a>
+          </div>
+        </div>
+
+        <div class="rackImg" aria-label="Clothing rack image">
+          <img src="data:image/jpeg;base64,PASTE_RACK_BASE64_HERE" alt="Clothing rack" />
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <div class="legal">© <span id="year"></span> I Shirt You Not. All rights reserved.</div>
+      <div class="legal">Email: <a href="mailto:ishirtyounot@gmail.com"><b>ishirtyounot@gmail.com</b></a></div>
+    </footer>
   </main>
 
-<script>
-  document.getElementById("year").textContent = new Date().getFullYear();
-</script>
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>
