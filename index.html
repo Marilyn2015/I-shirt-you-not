@@ -70,7 +70,6 @@
   .email{
     display:flex; align-items:center; gap:10px;
     font-size:14px; color:var(--muted); white-space:nowrap;
-    
   }
   .email svg{opacity:.9}
   .nav{
@@ -101,17 +100,17 @@
     border:1px solid rgba(255,255,255,.10);
     box-shadow: var(--shadow);
   }
-.heroInner{
-  position:relative;
-  min-height: unset;
-  display:grid;
-  grid-template-columns: 1.15fr .85fr;
-  gap: 16px;                 /* was 18px */
-  padding: 18px 32px 22px;   /* was 26px 32px 24px */
-  background:#000;
-  align-items:start;
-}
 
+  .heroInner{
+    position:relative;
+    min-height: unset;
+    display:grid;
+    grid-template-columns: 1.15fr .85fr;
+    gap: 16px;
+    padding: 18px 32px 22px;
+    background:#000;
+    align-items:start;
+  }
 
   .heroBg{
     position:absolute; inset:0;
@@ -132,20 +131,17 @@
   }
   .heroLeft, .heroRight{position:relative; z-index:2}
 
-  /* === ONLY NEW/CHANGED SPACING FIXES (tighten left column) === */
   .heroLeft{
-  display:flex;
-  flex-direction:column;
-  align-items:flex-start;
-  gap: 4px;
-}
+    display:flex;
+    flex-direction:column;
+    align-items:flex-start;
+    gap: 4px;
+  }
 
   .kicker{ margin:0; }
   .brand{ margin:0; }
   h1{ margin:0; }
   .sub{ margin:0; }
-  .ctaRow{ margin-top: 6px; }
-  /* === end spacing fixes === */
 
   .kicker{
     display:inline-flex;
@@ -177,7 +173,7 @@
   }
 
   h1{
-    margin: 14px 0 10px;
+    margin: 6px 0 4px;
     font-size: clamp(34px, 4.8vw, 58px);
     line-height: 1.02;
     letter-spacing: -0.8px;
@@ -191,20 +187,20 @@
     color: transparent;
   }
   .sub{
-  margin: 0 0 12px;   /* tighter overall */
-  max-width: 60ch;
-  color: var(--muted);
-  line-height: 1.65;
-  font-size: 15px;
-}
-
+    margin: 0 0 12px;
+    max-width: 60ch;
+    color: var(--muted);
+    line-height: 1.65;
+    font-size: 15px;
+  }
 
   .ctaRow{
     display:flex;
     gap:12px;
     flex-wrap:wrap;
-    margin-top: 14px;
+    margin-top: 6px;
   }
+
   .btn{
     display:inline-flex; align-items:center; justify-content:center;
     padding: 12px 16px;
@@ -341,7 +337,7 @@
     grid-template-columns: 1.05fr .95fr;
     gap: 16px;
     padding: 22px;
-    border-top: 1px solid (255,255,255,.08);
+    border-top: 1px solid rgba(255,255,255,.08);
     background: rgba(0,0,0,.18);
   }
   .rackCopy h3{
@@ -455,13 +451,11 @@
 
   <main class="container">
     <section class="hero" aria-label="Hero">
-      <!-- Hero background image -->
       <img class="heroBg" src="rack.jpg" alt="" aria-hidden="true" />
       <div class="heroShade" aria-hidden="true"></div>
 
       <div class="heroInner">
         <div class="heroLeft">
-         
 
           <div class="brand" aria-label="Brand">
             <img class="logo" src="logo.png" alt="I Shirt You Not logo" />
@@ -476,7 +470,13 @@
             Loud designs. Clean prints. Real quality. Tell us what you want and we’ll make it look dope — without looking cheap.
           </p>
 
-         
+          <!-- ONLY place these appear on the whole page -->
+          <div class="ctaRow">
+            <a class="btn gold" href="contact.html">Get a Quote</a>
+            <a class="btn primary" href="products.html">Shop Products</a>
+          </div>
+
+        </div>
 
         <aside class="heroRight">
           <div class="card">
@@ -489,13 +489,9 @@
               <li><span class="dot"></span> Sharp lines + consistent color</li>
               <li><span class="dot"></span> Small runs or bulk orders</li>
             </ul>
-
-            <div class="ctaRow" style="margin-top:14px">
-              <a class="btn" href="contact.html">Start a Quote</a>
-              <a class="btn" href="products.html">See Options</a>
-            </div>
           </div>
         </aside>
+
       </div>
     </section>
 
@@ -529,10 +525,7 @@
           <p>
             Bold, clean, and built to stand out. Loud or minimal — either way, it’ll look sharp.
           </p>
-          <div class="ctaRow" style="justify-content:flex-start; margin-top:14px">
-            <a class="btn primary" href="products.html">Shop Now</a>
-            <a class="btn" href="contact.html">Get a Quote</a>
-          </div>
+          <!-- Removed duplicate buttons here to keep them ONLY in hero -->
         </div>
 
         <div class="rackImg" aria-label="Clothing rack image">
