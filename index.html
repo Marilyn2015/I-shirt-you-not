@@ -6,6 +6,7 @@
 <title>I Shirt You Not — Custom Tees With Attitude</title>
 <meta name="description" content="Custom tees and hoodies with attitude. Bold prints. Fast turnaround. Real quality." />
 <meta name="robots" content="index,follow,max-image-preview:large" />
+<link rel="icon" href="logo.png" />
 
 <style>
   :root{
@@ -21,6 +22,7 @@
 
     --shadow: 0 28px 90px rgba(0,0,0,.72);
     --shadow2: 0 18px 40px rgba(0,0,0,.60);
+    --line: rgba(255,255,255,.10);
   }
 
   *{box-sizing:border-box}
@@ -37,6 +39,7 @@
 
   .container{max-width:var(--max); margin:0 auto; padding:0 22px}
 
+  /* grain + glow */
   .grain{
     position:fixed; inset:-40%;
     pointer-events:none; z-index:-2;
@@ -57,6 +60,7 @@
     opacity:.85;
   }
 
+  /* topbar */
   .topbar{
     position:sticky; top:0; z-index:1000;
     backdrop-filter: blur(14px);
@@ -91,57 +95,51 @@
     background:rgba(255,255,255,.08);
   }
 
-  main{padding: 26px 0 54px}
+  main{padding: 22px 0 54px}
 
+  /* ===== HERO: poster style ===== */
   .hero{
     position:relative;
     border-radius: 26px;
     overflow:hidden;
     border:1px solid rgba(255,255,255,.10);
     box-shadow: var(--shadow);
-  }
-
-  .heroInner{
-    position:relative;
-    min-height: unset;
-    display:grid;
-    grid-template-columns: 1.15fr .85fr;
-    gap: 16px;
-    padding: 18px 32px 22px;
     background:#000;
-    align-items:start;
   }
 
+  /* use rack.jpg as the poster-style background */
   .heroBg{
     position:absolute; inset:0;
     width:100%; height:100%;
     object-fit:cover;
     object-position:center;
-    filter: saturate(1.05) contrast(1.05);
-    transform: scale(1.04);
-    opacity: .30;
+    opacity: 1;
+    filter: none;
+    transform: none;
   }
+
+  /* heavy cinematic overlay so the logo/text reads */
   .heroShade{
     position:absolute; inset:0;
     background:
-      radial-gradient(900px 520px at 20% 20%, rgba(255,45,85,.20), transparent 62%),
-      radial-gradient(820px 520px at 82% 28%, rgba(0,179,255,.14), transparent 62%),
-      linear-gradient(180deg, rgba(0,0,0,.35), rgba(0,0,0,.88));
+      radial-gradient(900px 520px at 18% 20%, rgba(255,45,85,.20), transparent 62%),
+      radial-gradient(820px 520px at 82% 26%, rgba(0,179,255,.14), transparent 62%),
+      linear-gradient(180deg, rgba(0,0,0,.55) 0%, rgba(0,0,0,.78) 55%, rgba(0,0,0,.92) 100%);
     pointer-events:none;
   }
-  .heroLeft, .heroRight{position:relative; z-index:2}
 
-  .heroLeft{
+  .heroInner{
+    position:relative;
+    z-index:2;
+    min-height: 780px;
     display:flex;
     flex-direction:column;
-    align-items:flex-start;
-    gap: 4px;
+    align-items:center;
+    justify-content:flex-start;
+    text-align:center;
+    gap: 12px;
+    padding: 34px 26px 30px;
   }
-
-  .kicker{ margin:0; }
-  .brand{ margin:0; }
-  h1{ margin:0; }
-  .sub{ margin:0; }
 
   .kicker{
     display:inline-flex;
@@ -150,13 +148,14 @@
     padding: 8px 12px;
     border-radius: 999px;
     border: 1px solid rgba(255,255,255,.14);
-    background: rgba(255,255,255,.05);
-    color: rgba(255,255,255,.80);
+    background: rgba(0,0,0,.38);
+    color: rgba(255,255,255,.82);
     font-size: 12px;
     letter-spacing: .18em;
     text-transform: uppercase;
     font-weight: 900;
     width: fit-content;
+    margin-top: 2px;
   }
   .kdot{
     width:10px;height:10px;border-radius:999px;
@@ -164,21 +163,26 @@
     box-shadow: 0 0 18px rgba(255,45,85,.25);
   }
 
-  .brand{ margin: 0 0 6px; }
+  .brand{
+    margin: 6px 0 2px;
+    display:flex;
+    justify-content:center;
+  }
   .logo{
-    width: 340px;
-    max-width: 100%;
+    width: 420px;
+    max-width: 86vw;
     height:auto;
-    filter: drop-shadow(0 18px 34px rgba(0,0,0,.70));
+    filter: drop-shadow(0 18px 34px rgba(0,0,0,.75));
   }
 
   h1{
-    margin: 6px 0 4px;
-    font-size: clamp(34px, 4.8vw, 58px);
+    margin: 6px 0 6px;
+    font-size: clamp(34px, 4.8vw, 62px);
     line-height: 1.02;
     letter-spacing: -0.8px;
     text-transform: uppercase;
     font-weight: 1000;
+    text-shadow: 0 14px 40px rgba(0,0,0,.65);
   }
   .accent{
     background: linear-gradient(90deg, var(--hot), var(--ice));
@@ -186,27 +190,29 @@
     background-clip: text;
     color: transparent;
   }
+
   .sub{
-    margin: 0 0 12px;
-    max-width: 60ch;
-    color: var(--muted);
-    line-height: 1.65;
+    margin: 0;
+    max-width: 62ch;
+    color: rgba(255,255,255,.78);
+    line-height: 1.6;
     font-size: 15px;
+    text-shadow: 0 12px 30px rgba(0,0,0,.60);
   }
 
   .ctaRow{
     display:flex;
     gap:12px;
     flex-wrap:wrap;
-    margin-top: 6px;
+    justify-content:center;
+    margin-top: 8px;
   }
-
   .btn{
     display:inline-flex; align-items:center; justify-content:center;
-    padding: 12px 16px;
+    padding: 13px 18px;
     border-radius: 999px;
     border:1px solid rgba(255,255,255,.16);
-    background: rgba(255,255,255,.06);
+    background: rgba(0,0,0,.35);
     font-weight: 950;
     letter-spacing: .6px;
     text-transform: uppercase;
@@ -216,69 +222,20 @@
   }
   .btn:hover{filter:brightness(1.06); transform: translateY(-1px)}
   .btn:active{transform: translateY(0px) scale(.99)}
-  .btn.primary{
-    border:none;
-    color:#070709;
-    background: linear-gradient(90deg, rgba(255,45,85,.95), rgba(0,179,255,.80));
-  }
   .btn.gold{
     border:1px solid rgba(255,183,3,.55);
     color:#120a00;
     background: linear-gradient(90deg, rgba(255,183,3,.96), rgba(255,45,85,.70));
   }
 
-  .card{
-    border: 1px solid rgba(255,255,255,.12);
-    background: rgba(255,255,255,.04);
-    border-radius: 20px;
-    padding: 18px;
-    box-shadow: var(--shadow2);
-  }
-  .cardTitle{
-    margin: 0 0 8px;
-    font-size: 13px;
-    letter-spacing: .18em;
-    text-transform: uppercase;
-    color: rgba(255,255,255,.76);
-    font-weight: 1000;
-  }
-  .cardP{
-    margin: 0 0 14px;
-    color: var(--muted);
-    line-height: 1.65;
-    font-size: 14px;
-  }
-  .bullets{
-    display:grid;
-    gap: 10px;
-    margin: 0;
-    padding: 0;
-    list-style:none;
-  }
-  .bullets li{
-    display:flex;
-    gap: 10px;
-    padding: 12px 12px;
-    border-radius: 16px;
-    border: 1px solid rgba(255,255,255,.10);
-    background: rgba(0,0,0,.34);
-    color: rgba(255,255,255,.85);
-    font-size: 14px;
-    line-height: 1.35;
-  }
-  .dot{
-    width: 10px; height: 10px; border-radius: 999px;
-    margin-top: 5px;
-    background: linear-gradient(180deg, var(--hot), var(--ice));
-    flex: 0 0 10px;
-  }
-
+  /* ===== sections below hero ===== */
   .section{
     margin-top: 18px;
     border-radius: 22px;
     border: 1px solid rgba(255,255,255,.10);
     background: rgba(255,255,255,.03);
     overflow:hidden;
+    box-shadow: var(--shadow2);
   }
   .sectionHeader{padding: 22px 22px 10px}
   .sectionKicker{
@@ -288,7 +245,7 @@
     font-weight: 950;
     color: rgba(255,255,255,.70);
     margin: 0 0 8px;
-    display:flex; align-items:center; gap:10px;
+    display:flex; align-items:center; justify-content:center; gap:10px;
   }
   .sectionKicker .kdot{width:9px;height:9px}
   .sectionHeader h2{
@@ -296,13 +253,15 @@
     font-size: 22px;
     text-transform: uppercase;
     font-weight: 1000;
+    text-align:center;
   }
   .sectionHeader p{
-    margin: 0;
+    margin: 0 auto;
     color: var(--muted);
     line-height: 1.7;
     font-size: 14px;
     max-width: 78ch;
+    text-align:center;
   }
 
   .grid3{
@@ -390,24 +349,12 @@
   .legal{color: rgba(255,255,255,.62); font-size:12px}
   .legal b{color: rgba(255,255,255,.90)}
 
+  /* responsive */
   @media (max-width: 980px){
-    .heroInner{grid-template-columns:1fr; min-height: unset; padding: 34px}
-    .logo{width: 380px}
+    .heroInner{min-height: 720px; padding: 30px 18px 26px}
     .grid3{grid-template-columns:1fr}
     .rack{grid-template-columns:1fr}
   }
-  @media (max-width: 520px){
-    main{padding: 18px 0 44px}
-    .container{padding: 0 16px}
-    .hero{border-radius: 22px}
-    .heroInner{padding: 22px}
-    .logo{width: 320px}
-    .btn{width:100%}
-    .grid3{padding: 12px 16px 16px}
-    .sectionHeader{padding: 18px 16px 8px}
-    .rack{padding: 16px}
-  }
-
   @media (max-width: 640px){
     .topbarRow{flex-wrap: wrap; justify-content: center; gap: 10px; padding: 10px 0}
     .email{
@@ -421,6 +368,12 @@
     }
     .nav{width: 100%; justify-content: center; gap: 10px}
     .nav a{flex: 1; text-align: center; padding: 10px 10px; border-radius: 14px; font-size: 13px}
+    .container{padding: 0 16px}
+  }
+  @media (max-width: 520px){
+    main{padding: 18px 0 44px}
+    .hero{border-radius: 22px}
+    .heroInner{min-height: 680px}
   }
 </style>
 </head>
@@ -450,48 +403,30 @@
   </div>
 
   <main class="container">
-    <section class="hero" aria-label="Hero">
+    <section class="hero" aria-label="Hero Poster">
       <img class="heroBg" src="rack.jpg" alt="" aria-hidden="true" />
       <div class="heroShade" aria-hidden="true"></div>
 
       <div class="heroInner">
-        <div class="heroLeft">
+        <div class="kicker"><span class="kdot"></span> CUSTOM PRINTS • CLEAN LOOK • FAST TURNAROUND</div>
 
-          <div class="brand" aria-label="Brand">
-            <img class="logo" src="logo.png" alt="I Shirt You Not logo" />
-          </div>
-
-          <h1>
-            Custom Tees & Hoodies<br />
-            <span class="accent">With Attitude</span>
-          </h1>
-
-          <p class="sub">
-            Loud designs. Clean prints. Real quality. Tell us what you want and we’ll make it look dope — without looking cheap.
-          </p>
-
-          <!-- ONLY place these appear on the whole page -->
-          <div class="ctaRow">
-            <a class="btn gold" href="contact.html">Get a Quote</a>
-            <a class="btn primary" href="products.html">Shop Products</a>
-          </div>
-
+        <div class="brand" aria-label="Brand">
+          <img class="logo" src="logo.png" alt="I Shirt You Not logo" />
         </div>
 
-        <aside class="heroRight">
-          <div class="card">
-            <div class="cardTitle">What you get</div>
-            <p class="cardP">
-              Clean setup, solid blanks, and prints that don’t look like a bargain-bin mess.
-            </p>
-            <ul class="bullets">
-              <li><span class="dot"></span> Proof before print — you approve it</li>
-              <li><span class="dot"></span> Sharp lines + consistent color</li>
-              <li><span class="dot"></span> Small runs or bulk orders</li>
-            </ul>
-          </div>
-        </aside>
+        <h1>
+          Custom Tees & Hoodies<br />
+          <span class="accent">With Attitude</span>
+        </h1>
 
+        <p class="sub">
+          Loud designs. Clean prints. Real quality. Tell us what you want and we’ll make it look dope — without looking cheap.
+        </p>
+
+        <!-- ONLY “GET A QUOTE” ON THE PAGE -->
+        <div class="ctaRow">
+          <a class="btn gold" href="contact.html">Get a Quote</a>
+        </div>
       </div>
     </section>
 
@@ -525,7 +460,6 @@
           <p>
             Bold, clean, and built to stand out. Loud or minimal — either way, it’ll look sharp.
           </p>
-          <!-- Removed duplicate buttons here to keep them ONLY in hero -->
         </div>
 
         <div class="rackImg" aria-label="Clothing rack image">
