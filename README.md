@@ -1,6 +1,3 @@
-<p align="center">
-  <img src="your-banner-image-url-here" width="100%">
-</p>
 <h1 align="center">👕 I Shirt You Not</h1>
 
 <p align="center">
